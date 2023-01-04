@@ -8,6 +8,7 @@ for each patch of the sky. Gendaymtx is written by Ian Ashdown and Greg Ward.
 More information can be found in Radiance manual at:
 http://www.radiance-online.org/learning/documentation/manual-pages/pdfs/gendaymtx.pdf
 """
+from __future__ import division
 import os
 import subprocess
 import sys
@@ -31,9 +32,9 @@ class SkyMatrix(object):
 
     Args:
         wea: A Ladybug Wea object.
-        north: A number between -360 and 360 for the counterclockwise difference between
-            the North and the positive Y-axis in degrees. 90 is West and 270 is East
-            (Default: 0)
+        north: A number between -360 and 360 for the counterclockwise difference
+            between the North and the positive Y-axis in degrees. 90 is West and 270
+            is East. (Default: 0).
         high_density: A Boolean to indicate whether the higher-density Reinhart
             sky matrix should be generated (True), which has roughly 4 times
             the sky patches as the (default) original Tregenza sky (False).
@@ -337,7 +338,7 @@ class SkyMatrix(object):
 
     @property
     def north(self):
-        """Get or set north direction.
+        """Get or set a number north direction.
 
         A number between -360 and 360 for the counterclockwise difference between
         the North and the positive Y-axis in degrees. 90 is West and 270 is East.
