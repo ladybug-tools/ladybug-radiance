@@ -26,7 +26,7 @@ class SkyDome(object):
             used. (Default: None).
         plot_irradiance: Boolean to note whether the sky dome should be plotted with
             units of total Radiation (kWh/m2) [False] or with units of average
-            Irradiance (W/m2) [True].
+            Irradiance (W/m2) [True]. (Default: False).
         center_point: A point for the center of the dome. (Default: (0, 0, 0)).
         radius: A number to set the radius of the sky dome. (Default: 100).
         projection: Optional text for the name of a projection to use from the sky
@@ -69,7 +69,8 @@ class SkyDome(object):
             self._diffuse_values = diffuse
         else:
             factor = 1000 / sky_matrix.wea_duration \
-                if hasattr(sky_matrix, 'wea_duration') else 1000 / 8760
+                if hasattr(sky_matrix, 'wea_duration') else \
+                1000 / (((metadata[3] - metadata[2]).total_seconds() / 3600) + 1)
             self._direct_values = tuple(v * factor for v in direct)
             self._diffuse_values = tuple(v * factor for v in diffuse)
         zip_obj = zip(self._direct_values, self._diffuse_values)
@@ -106,7 +107,8 @@ class SkyDome(object):
         self._center_point = center_point
         assert isinstance(radius, (float, int)), 'Expected number for radius. ' \
             'Got {}.'.format(type(radius))
-        assert radius > 0, 'Dome radius must be greater than zero. Go {}.'.format(radius)
+        assert radius > 0, \
+            'Dome radius must be greater than zero. Got {}.'.format(radius)
         self._radius = radius
         if projection is not None:
             assert projection in self.PROJECTIONS, 'Projection "{}" is not recognized.' \
@@ -179,15 +181,16 @@ class SkyDome(object):
         """Boolean to note whether the sky matrix includes benefit information."""
         return self._is_benefit
 
-    def draw_dome(self, dome_type='total', center=None):
-        """Draw a dome mesh, compass, legend, and title for a sky dome.
+    def draw(self, rad_type='total', center=None):
+        """Draw a dome mesh, compass, graphic/legend, and title for the sky dome.
 
         Args:
-            dome_type: Text for the type of dome to draw. Choose from total, direct,
+            rad_type: Text for the type of radiation to use. Choose from total, direct,
                 diffuse. (Default: total).
             center: A Point3D to override the center of the sky dome. This is useful
-                when rendering all of the sky components together. If None, the center
-                point assigned to the object instance is used. (Default: None).
+                when rendering all of the sky components together and one dome should
+                not be on top of another. If None, the center point assigned to the
+                object instance is used. (Default: None).
 
         Returns:
             dome_mesh: A colored Mesh3D for the dome.
@@ -198,14 +201,14 @@ class SkyDome(object):
             values: A list of radiation values that align with the dome_mesh faces.
         """
         # get the dome data to be plotted
-        if dome_type.lower() == 'total':
+        if rad_type.lower() == 'total':
             dome_data = self.total_values
-        elif dome_type.lower() == 'direct':
+        elif rad_type.lower() == 'direct':
             dome_data = self.direct_values
-        elif dome_type.lower() == 'diffuse':
+        elif rad_type.lower() == 'diffuse':
             dome_data = self.diffuse_values
         else:
-            raise ValueError('Dome type "{}" not recognized.'.format(dome_type))
+            raise ValueError('Radiation type "{}" not recognized.'.format(rad_type))
 
         # create the dome mesh and ensure patch values align with mesh faces
         if len(dome_data) == 145:  # tregenza sky
@@ -245,9 +248,9 @@ class SkyDome(object):
             dome_mesh = Mesh3D(pts3d, dome_mesh.faces)
 
         # output the dome visualization, including graphic and compass
-        move_fac = self.radius * 0.15
-        min_pt = dome_mesh.min.move(Vector3D(-move_fac, -move_fac, 0))
-        max_pt = dome_mesh.max.move(Vector3D(move_fac, move_fac, 0))
+        move_fac = self.radius * 1.15
+        min_pt = center.move(Vector3D(-move_fac, -move_fac, 0))
+        max_pt = center.move(Vector3D(move_fac, move_fac, 0))
         if self.plot_irradiance:
             d_type, unit, typ_str = Irradiance(), 'W/m2', 'Irradiance'
         else:
@@ -263,7 +266,25 @@ class SkyDome(object):
         if self.is_benefit:
             typ_str = '{} Benefit/Harm'.format(typ_str)
         dome_title = '{} {}\n{}\n{}'.format(
-            dome_type.title(), typ_str, time_str,
+            rad_type.title(), typ_str, time_str,
             '\n'.join([dat for dat in self.metadata[4:]]))
 
         return dome_mesh, dome_compass, graphic, dome_title, values
+
+    def ToString(self):
+        """Overwrite .NET ToString."""
+        return self.__repr__()
+
+    def __len__(self):
+        return len(self._total_values)
+
+    def __getitem__(self, key):
+        return self._total_values[key], self._direct_values[key], \
+            self._diffuse_values[key]
+
+    def __iter__(self):
+        return zip(self._total_values, self._direct_values, self._diffuse_values)
+
+    def __repr__(self):
+        """Sky Dome object representation."""
+        return 'Sky Dome [{} patches]'.format(len(self._total_values))
