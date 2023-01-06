@@ -241,9 +241,6 @@ class SkyDome(object):
             elif self.projection.title() == 'Stereographic':
                 pts = (Compass.point3d_to_stereographic(pt, self.radius, center)
                        for pt in dome_mesh.vertices)
-            else:
-                raise ValueError(
-                    'Projection type "{}" is not recognized.'.format(self.projection))
             pts3d = tuple(Point3D(pt.x, pt.y, center.z) for pt in pts)
             dome_mesh = Mesh3D(pts3d, dome_mesh.faces)
 
@@ -287,4 +284,4 @@ class SkyDome(object):
 
     def __repr__(self):
         """Sky Dome object representation."""
-        return 'Sky Dome [{} patches]'.format(len(self._total_values))
+        return 'SkyDome [{} patches]'.format(len(self._total_values))

@@ -1,4 +1,4 @@
-"""Class for visualizing sky matrices on a dome."""
+"""Class for visualizing the impact of radiation from different direction as a rose."""
 from __future__ import division
 import math
 
@@ -52,13 +52,14 @@ class RadiationRose(object):
         plot_irradiance: Boolean to note whether the radiation rose should be plotted
             with units of total Radiation (kWh/m2) [False] or with units of average
             Irradiance (W/m2) [True]. (Default: False).
-        center_point: A point for the center of the dome. (Default: (0, 0, 0)).
+        center_point: A point for the center of the rose. (Default: (0, 0, 0)).
         radius: A number to set the radius of the radiation rose. (Default: 100).
         arrow_scale: A fractional number to note the scale of the radiation rose arrows
             in relation to the entire graphic. (Default: 1).
 
     Properties:
         * direction_count
+        * tilt_angle
         * legend_parameters
         * plot_irradiance
         * center_point
@@ -93,6 +94,8 @@ class RadiationRose(object):
                 1000 / (((metadata[3] - metadata[2]).total_seconds() / 3600) + 1)
             direct = tuple(v * factor for v in direct)
             diffuse = tuple(v * factor for v in diffuse)
+        elif not isinstance(direct, tuple):
+            direct, diffuse = tuple(direct), tuple(diffuse)
 
         # get the radiation coming from the ground
         dir_ground = ((sum(direct) / len(direct)) * metadata[1],) * len(direct)
@@ -271,7 +274,7 @@ class RadiationRose(object):
         """Boolean to note whether the sky matrix includes benefit information."""
         return self._is_benefit
 
-    def draw(self, rad_type='total', center=None):
+    def draw(self, rad_type='total', center=None, max_rad=None):
         """Draw an arrow mesh, orientation lines, compass, graphic/legend, and title.
 
         Args:
@@ -281,6 +284,12 @@ class RadiationRose(object):
                 when rendering all of the sky components together and one rose
                 should not be on top of another. If None, the center
                 point assigned to the object instance is used. (Default: None).
+            max_rad: An optional number to set the level of radiation or irradiance
+                associated with the full radius of the rose. If None, this is
+                determined by the maximum level of radiation in the input data
+                but a number can be specified here to fix this at a specific value.
+                This is particularly useful when comparing different roses to one
+                another. (Default: None).
 
         Returns:
             arrow_mesh: A colored Mesh3D for the rose arrows.
@@ -303,8 +312,11 @@ class RadiationRose(object):
 
         # generate the mesh for the arrows of the rose
         ar_angle = math.pi / self.direction_count
-        len_factor = self.radius / max(self.total_values) if not self.is_benefit else \
-            self.radius / max((-min(self._total_values), max(self._total_values)))
+        if max_rad is None:
+            len_factor = self.radius / max(self.total_values) if not self.is_benefit \
+                else self.radius / max((-min(self.total_values), max(self.total_values)))
+        else:
+            len_factor = self.radius / max_rad
         verts, faces, f_count = [center], [], 0
         for r_val, dir_vec in zip(rad_data, self.direction_vectors):
             # get key dimensions of the arrow
@@ -353,6 +365,7 @@ class RadiationRose(object):
 
     @staticmethod
     def radial_vectors(direction_count, tilt_angle=0):
+        """Generate a list of radial vectors."""
         if tilt_angle != 0:
             x_axis = Vector3D(1, 0, 0)
             base_vec = Vector3D(0, 1, 0)
@@ -380,4 +393,4 @@ class RadiationRose(object):
 
     def __repr__(self):
         """Rose object representation."""
-        return 'Radiation Rose [{} directions]'.format(self.direction_count)
+        return 'RadiationRose [{} directions]'.format(self.direction_count)

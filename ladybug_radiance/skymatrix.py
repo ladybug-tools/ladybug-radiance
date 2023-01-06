@@ -636,4 +636,4 @@ class SkyMatrix(object):
 
     def __repr__(self):
         """Sky Matrix object representation."""
-        return "Sky Matrix [%s]" % self.wea.location.city
+        return "SkyMatrix [%s]" % self.wea.location.city
