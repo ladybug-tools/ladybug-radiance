@@ -42,3 +42,19 @@ def test_skydome_init():
     assert len(sky_dome.total_values) == 577
     assert len(sky_dome.direct_values) == 577
     assert len(sky_dome.diffuse_values) == 577
+
+
+def test_skydome_benefit():
+    """Test int from_epw_benefit"""
+    epw_path = './tests/assets/epw/chicago.epw'
+    sky_from_epw = SkyMatrix.from_epw_benefit(epw_path)
+    sky_dome = SkyDome(sky_from_epw, plot_irradiance=True)
+
+    assert sky_dome.plot_irradiance
+    assert sky_dome.is_benefit
+    dome_mesh, dome_compass, graphic, dome_title, values = sky_dome.draw()
+
+    assert isinstance(dome_mesh, Mesh3D)
+    assert isinstance(dome_compass, Compass)
+    assert isinstance(graphic, GraphicContainer)
+    assert isinstance(dome_title, str)
