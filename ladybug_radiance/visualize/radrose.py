@@ -106,7 +106,7 @@ class RadiationRose(object):
         # get the vectors and angles for each direction
         self._direction_count = int(direction_count)
         assert self._direction_count >= 3, 'RadiationRose direction_count must be ' \
-            'greater or equal to 3. Got {}.'.format(direction_count)
+            'greater than or equal to 3. Got {}.'.format(direction_count)
         assert isinstance(tilt_angle, (float, int)), 'Expected number for tilt_angle. ' \
             'Got {}.'.format(type(tilt_angle))
         assert 0 <= tilt_angle < 90, 'Rose tilt_angle must be between 0 and 90. ' \

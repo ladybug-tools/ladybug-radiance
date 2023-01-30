@@ -58,6 +58,7 @@ class RadiationDome(object):
 
                 * Orthographic
                 * Stereographic
+
     Properties:
         * azimuth_count
         * altitude_count

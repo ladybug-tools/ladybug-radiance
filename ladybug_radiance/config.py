@@ -38,6 +38,7 @@ class Folders(object):
         * radiance_version_str
         * radiance_version_date
         * config_file
+        * env
         * mute
     """
 
