@@ -67,7 +67,7 @@ class RadiationStudy(object):
 
     def __init__(self, sky_matrix, study_mesh, context_geometry,
                  offset_distance=0, by_vertex=False, sim_folder=None):
-        """Initialize RadiationDome."""
+        """Initialize RadiationStudy."""
         # set default values, which will be overwritten when the study is run
         self._offset_distance = float(offset_distance)
         self._by_vertex = bool(by_vertex)
@@ -251,7 +251,7 @@ class RadiationStudy(object):
 
         Args:
             legend_parameters: An optional LegendParameter object to change the display
-                of the radiation dome. If None, default legend parameters will be
+                of the radiation study. If None, default legend parameters will be
                 used. (Default: None).
             plot_irradiance: Boolean to note whether the results should be plotted
                 with units of total Radiation (kWh/m2) [False] or with units of average

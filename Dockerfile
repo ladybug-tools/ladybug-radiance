@@ -28,6 +28,7 @@ COPY ladybug_radiance ${LIBRARYDIR}/ladybug_radiance
 COPY .git ${LIBRARYDIR}/.git
 COPY README.md ${LIBRARYDIR}
 COPY requirements.txt ${LIBRARYDIR}
+COPY display-requirements.txt ${LIBRARYDIR}
 COPY setup.py ${LIBRARYDIR}
 COPY setup.cfg ${LIBRARYDIR}
 COPY LICENSE ${LIBRARYDIR}
@@ -35,7 +36,7 @@ COPY LICENSE ${LIBRARYDIR}
 # Switch user back to modify packages
 USER root
 RUN pip3 install --no-cache-dir setuptools wheel \
-    && pip3 install --no-cache-dir ./ladybug-radiance \
+    && pip3 install --no-cache-dir ${LIBRARY_PATH}[display] \
     && apt-get -y --purge remove git \
     && apt-get -y clean \
     && apt-get -y autoremove \

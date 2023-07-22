@@ -64,7 +64,7 @@ class DirectSunStudy(object):
         self._by_vertex = bool(by_vertex)
         # set the key properties of the object
         self.vectors = vectors
-        self.timestep = 1
+        self.timestep = timestep
         self.study_mesh = study_mesh
         self.context_geometry = context_geometry
         self.sim_folder = sim_folder
@@ -217,7 +217,7 @@ class DirectSunStudy(object):
 
         Args:
             legend_parameters: An optional LegendParameter object to change the display
-                of the radiation dome. If None, default legend parameters will be
+                of the direct sun study. If None, default legend parameters will be
                 used. (Default: None).
 
         Returns:
