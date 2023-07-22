@@ -36,7 +36,7 @@ COPY LICENSE ${LIBRARYDIR}
 # Switch user back to modify packages
 USER root
 RUN pip3 install --no-cache-dir setuptools wheel \
-    && pip3 install --no-cache-dir ${LIBRARY_PATH}[display] \
+    && pip3 install --no-cache-dir ./ladybug-radiance[display] \
     && apt-get -y --purge remove git \
     && apt-get -y clean \
     && apt-get -y autoremove \
