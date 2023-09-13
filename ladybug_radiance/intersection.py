@@ -4,10 +4,12 @@ import os
 import subprocess
 import tempfile
 import math
+import numpy as np
 
 from ladybug_geometry.geometry3d import Face3D, Mesh3D
 from ladybug.futil import write_to_file_by_name
 from ladybug.viewsphere import view_sphere
+from honeybee_radiance_postprocess.reader import binary_to_array
 
 from .config import folders
 
@@ -127,22 +129,19 @@ def intersection_matrix(vectors, points, normals, context_geometry,
     rad_par = '-V- -aa 0.0 -y {} -I -faf -ab 0 -dc 1.0 -dt 0.0 -dj 0.0 -dr 0 -M "{}"'
     rc_options = rad_par.format(
         len(points), os.path.join(os.path.abspath(sim_folder), vec_mod_file))
-    cmd = '"{}" {} "{}" < "{}"'.format(RCONTRIB_EXE, rc_options, scene_oct, pts_file)
-    cmd = '{} | rmtxop -fa - -c 14713 0 0 | getinfo -  > {}'.format(cmd, output_mtx)
+    cmd = '"{}" {} "{}" < "{}" > "{}"'.format(RCONTRIB_EXE, rc_options, scene_oct, pts_file, output_mtx)
     cmd = cmd.replace('\\', '/')
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, env=g_env)
     process.communicate()
 
     # put back the current working directory and load the intersection matrix
     os.chdir(cur_dir)
-    int_mtx = []
-    with open(os.path.join(sim_folder, output_mtx), 'r') as rf:
-        if numericalize:
-            for row in rf:
-                int_mtx.append([float(v) for v in row.split()])
-        else:
-            for row in rf:
-                int_mtx.append([bool(float(v)) for v in row.split()])
+    int_mtx = binary_to_array(os.path.join(sim_folder, output_mtx))
+    conversion = np.array([14713, 0, 0])
+    int_mtx = np.dot(int_mtx, conversion)
+    if not numericalize:
+        int_mtx = int_mtx.astype(dtype=bool)
+
     return int_mtx
 
 
