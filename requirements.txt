@@ -1,2 +1,2 @@
 ladybug-core>=0.41.30
-honeybee-radiance-postprocess==0.4.272
+numpy>=1.21.6
