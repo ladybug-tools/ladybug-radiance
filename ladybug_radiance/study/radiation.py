@@ -237,12 +237,12 @@ class RadiationStudy(object):
             self._compute_intersection_matrix()
         # get the total radiation from the sky matrix
         mtx = self.sky_matrix.data
-        sky_rad_ = np.array(mtx[1]) + np.array(mtx[2])
-        ground_value_ = (sky_rad_.sum() / len(sky_rad_)) * self.sky_matrix.ground_reflectance
-        ground_rad_ = np.full(len(sky_rad_), ground_value_)
-        all_rad_ = np.concatenate([sky_rad_, ground_rad_])
+        sky_rad = np.array(mtx[1]) + np.array(mtx[2])
+        ground_value = (sky_rad.sum() / len(sky_rad)) * self.sky_matrix.ground_reflectance
+        ground_rad = np.full(len(sky_rad), ground_value)
+        all_rad = np.concatenate([sky_rad, ground_rad])
         # multiply the intersection and sky matrices
-        self._radiation_values = np.dot(self._intersection_matrix, all_rad_).tolist()
+        self._radiation_values = np.dot(self._intersection_matrix, all_rad).tolist()
 
     def draw(self, legend_parameters=None, plot_irradiance=False):
         """Draw a colored study_mesh, compass, graphic/legend, and title.
