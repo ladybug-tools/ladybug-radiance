@@ -1,5 +1,6 @@
 # coding=utf-8
 import pytest
+import numpy as np
 
 from ladybug_geometry.geometry2d import Point2D, Mesh2D
 from ladybug_geometry.geometry3d import Vector3D, Point3D, LineSegment3D, Face3D, Mesh3D
@@ -80,7 +81,7 @@ def test_direct_sun_study():
     int_mtx = sun_study.intersection_matrix
     assert len(int_mtx) == len(mesh.faces)
     assert len(int_mtx[0]) == len(sun_vecs)
-    assert all(isinstance(v, bool) for v in int_mtx[0])
+    assert int_mtx.dtype == np.bool_
     assert not all(int_mtx[0])
 
     sun_values = sun_study.direct_sun_hours

@@ -1,4 +1,6 @@
 # coding=utf-8
+import numpy as np
+
 from ladybug_geometry.geometry3d import Vector3D, Point3D, LineSegment3D, Face3D
 
 from ladybug_radiance.skymatrix import SkyMatrix
@@ -21,7 +23,7 @@ def test_intersection():
         sky_from_epw, points, rad_rose.direction_vectors, [context_geometry])
     assert len(int_mtx) == rad_rose.direction_count
     assert len(int_mtx[0]) == 290
-    assert all(isinstance(v, bool) for v in int_mtx[0])
+    assert int_mtx.dtype == np.bool_
     assert not all(int_mtx[0])
 
     int_mtx = sky_intersection_matrix(
