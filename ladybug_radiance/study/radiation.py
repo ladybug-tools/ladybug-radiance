@@ -1,5 +1,6 @@
 """Class for visualizing incident radiation (or irradiance) falling onto a mesh."""
 from __future__ import division
+import numpy as np
 
 from ladybug_geometry.bounding import bounding_box
 from ladybug_geometry.geometry3d import Mesh3D, Face3D
@@ -236,15 +237,12 @@ class RadiationStudy(object):
             self._compute_intersection_matrix()
         # get the total radiation from the sky matrix
         mtx = self.sky_matrix.data
-        sky_rad = [dir_rad + dif_rad for dir_rad, dif_rad in zip(mtx[1], mtx[2])]
-        ground_value = (sum(sky_rad) / len(sky_rad)) * self.sky_matrix.ground_reflectance
-        ground_rad = [ground_value] * len(sky_rad)
-        all_rad = sky_rad + ground_rad
+        sky_rad_ = np.array(mtx[1]) + np.array(mtx[2])
+        ground_value_ = (sky_rad_.sum() / len(sky_rad_)) * self.sky_matrix.ground_reflectance
+        ground_rad_ = np.full(len(sky_rad_), ground_value_)
+        all_rad_ = np.concatenate([sky_rad_, ground_rad_])
         # multiply the intersection and sky matrices
-        self._radiation_values = [
-            sum(r * w for r, w in zip(pt_rel, all_rad))
-            for pt_rel in self._intersection_matrix
-        ]
+        self._radiation_values = np.dot(self._intersection_matrix, all_rad_).tolist()
 
     def draw(self, legend_parameters=None, plot_irradiance=False):
         """Draw a colored study_mesh, compass, graphic/legend, and title.
