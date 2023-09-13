@@ -209,8 +209,7 @@ class DirectSunStudy(object):
             self._compute_intersection_matrix()
         # sum the intersection and sky matrices
         t_step = self.timestep
-        self._direct_sun_hours = [
-            sum(int_list) / t_step for int_list in self._intersection_matrix]
+        self._direct_sun_hours = (self._intersection_matrix.sum(axis=1) / t_step).tolist()
 
     def draw(self, legend_parameters=None):
         """Draw a colored study_mesh, compass, graphic/legend, and title.
