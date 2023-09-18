@@ -4,8 +4,12 @@ import os
 import subprocess
 import tempfile
 import math
-from typing import Tuple
-import numpy as np
+
+try:  # first, assume we are in cPython and numpy is installed
+    from typing import Tuple
+    import numpy as np
+except Exception:  # we are in IronPython or numpy is not installed
+    np, Tuple = None, None
 
 from ladybug_geometry.geometry3d import Face3D, Mesh3D
 from ladybug.futil import write_to_file_by_name
@@ -129,18 +133,33 @@ def intersection_matrix(vectors, points, normals, context_geometry,
     rad_par = '-V- -aa 0.0 -y {} -I -faf -ab 0 -dc 1.0 -dt 0.0 -dj 0.0 -dr 0 -M "{}"'
     rc_options = rad_par.format(
         len(points), os.path.join(os.path.abspath(sim_folder), vec_mod_file))
-    cmd = '"{}" {} "{}" < "{}" > "{}"'.format(RCONTRIB_EXE, rc_options, scene_oct, pts_file, output_mtx)
+    if np is None:  # use Radiance to perform conversions on text files
+        cmd = '"{}" {} "{}" < "{}"'.format(RCONTRIB_EXE, rc_options, scene_oct, pts_file)
+        cmd = '{} | rmtxop -fa - -c 14713 0 0 | getinfo -  > {}'.format(cmd, output_mtx)
+    else:  # leave files as binary so they can be processed with numpy
+        cmd = '"{}" {} "{}" < "{}" > "{}"'.format(
+            RCONTRIB_EXE, rc_options, scene_oct, pts_file, output_mtx)
     cmd = cmd.replace('\\', '/')
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, env=g_env)
     process.communicate()
 
     # put back the current working directory and load the intersection matrix
     os.chdir(cur_dir)
-    int_mtx = binary_to_array(os.path.join(sim_folder, output_mtx))
-    conversion = np.array([14713, 0, 0])
-    int_mtx = np.dot(int_mtx, conversion)
-    if not numericalize:
-        int_mtx = int_mtx.astype(dtype=bool)
+    if np is None:  # use text parsing methods as we're in IronPython
+        int_mtx = []
+        with open(os.path.join(sim_folder, output_mtx), 'r') as rf:
+            if numericalize:
+                for row in rf:
+                    int_mtx.append([float(v) for v in row.split()])
+            else:
+                for row in rf:
+                    int_mtx.append([bool(float(v)) for v in row.split()])
+    else:  # we are in cPython and we should use more efficient numpy methods
+        int_mtx = binary_to_array(os.path.join(sim_folder, output_mtx))
+        conversion = np.array([14713, 0, 0])
+        int_mtx = np.dot(int_mtx, conversion)
+        if not numericalize:
+            int_mtx = int_mtx.astype(dtype=bool)
 
     return int_mtx
 
@@ -192,9 +211,7 @@ def sky_intersection_matrix(sky_matrix, points, normals, context_geometry,
         offset_distance, numericalize, sim_folder)
 
 
-def binary_to_array(
-        binary_file: str, nrows: int = None, ncols: int = None,
-        ncomp: int = None, line_count: int = 0) -> np.ndarray:
+def binary_to_array(binary_file, nrows=None, ncols= None, ncomp=None, line_count=0):
     """Read a Radiance binary file as a NumPy array.
 
     Args:
@@ -225,7 +242,7 @@ def binary_to_array(
     return array
 
 
-def binary_mtx_dimension(filepath: str) -> Tuple[int, int, int, int]:
+def binary_mtx_dimension(filepath):
     """Return binary Radiance matrix dimensions if it exists.
 
     This function returns NROWS, NCOLS, NCOMP and number of header lines including the
@@ -235,7 +252,7 @@ def binary_mtx_dimension(filepath: str) -> Tuple[int, int, int, int]:
         filepath: Full path to Radiance file.
 
     Returns:
-        nrows, ncols, ncomp, line_count
+        A tuple with 4 integers. nrows, ncols, ncomp, line_count
     """
     try:
         inf = open(filepath, 'rb', encoding='utf-8')
@@ -244,10 +261,9 @@ def binary_mtx_dimension(filepath: str) -> Tuple[int, int, int, int]:
     try:
         first_line = next(inf).rstrip().decode('utf-8')
         if first_line[:10] != '#?RADIANCE':
-            error_message = (
-                f'File with Radiance header must start with #?RADIANCE not '
-                f'{first_line}.'
-            )
+            error_message = \
+                'File with Radiance header must start with #?RADIANCE\n' \
+                'Not {}.'.format(first_line)
             raise ValueError(error_message)
 
         header_lines = [first_line]
@@ -265,11 +281,10 @@ def binary_mtx_dimension(filepath: str) -> Tuple[int, int, int, int]:
                 break
 
         if not nrows or not ncols:
-            error_message = (
-                f'NROWS or NCOLS was not found in the Radiance header. NROWS '
-                f'is {nrows} and NCOLS is {ncols}. The header must have both '
-                f'elements.'
-            )
+            error_message = \
+                'NROWS or NCOLS was not found in the Radiance header.\nNROWS ' \
+                'is {} and NCOLS is {}.\nThe header must have both ' \
+                'elements.'.format(nrows, ncols)
             raise ValueError(error_message)
         return nrows, ncols, ncomp, len(header_lines) + 1
     finally:

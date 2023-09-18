@@ -1,2 +1,2 @@
 ladybug-core>=0.41.30
-numpy>=1.21.6
+numpy>=1.21.6;python_version>='3.6'

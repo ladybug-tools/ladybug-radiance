@@ -1,6 +1,11 @@
 """Class for visualizing incident radiation (or irradiance) falling onto a mesh."""
 from __future__ import division
-import numpy as np
+
+try:  # first, assume we are in cPython and numpy is installed
+    from typing import Tuple
+    import numpy as np
+except Exception:  # we are in IronPython or numpy is not installed
+    np, Tuple = None, None
 
 from ladybug_geometry.bounding import bounding_box
 from ladybug_geometry.geometry3d import Mesh3D, Face3D
@@ -237,12 +242,21 @@ class RadiationStudy(object):
             self._compute_intersection_matrix()
         # get the total radiation from the sky matrix
         mtx = self.sky_matrix.data
-        sky_rad = np.array(mtx[1]) + np.array(mtx[2])
-        ground_value = (sky_rad.sum() / len(sky_rad)) * self.sky_matrix.ground_reflectance
-        ground_rad = np.full(len(sky_rad), ground_value)
-        all_rad = np.concatenate([sky_rad, ground_rad])
-        # multiply the intersection and sky matrices
-        self._radiation_values = np.dot(self._intersection_matrix, all_rad).tolist()
+        if np is None:  # perform the calculation with float numbers
+            sky_rad = [dir_rad + dif_rad for dir_rad, dif_rad in zip(mtx[1], mtx[2])]
+            grd_val = (sum(sky_rad) / len(sky_rad)) * self.sky_matrix.ground_reflectance
+            ground_rad = [grd_val] * len(sky_rad)
+            all_rad = sky_rad + ground_rad
+            self._radiation_values = [
+                sum(r * w for r, w in zip(pt_rel, all_rad))
+                for pt_rel in self._intersection_matrix
+            ]
+        else:  # perform the calculation with numpy matrices
+            sky_rad = np.array(mtx[1]) + np.array(mtx[2])
+            grd_val = (sky_rad.sum() / len(sky_rad)) * self.sky_matrix.ground_reflectance
+            ground_rad = np.full(len(sky_rad), grd_val)
+            all_rad = np.concatenate([sky_rad, ground_rad])
+            self._radiation_values = np.dot(self._intersection_matrix, all_rad).tolist()
 
     def draw(self, legend_parameters=None, plot_irradiance=False):
         """Draw a colored study_mesh, compass, graphic/legend, and title.

@@ -1,6 +1,12 @@
 """Class for visualizing the direct sun hours falling onto a mesh."""
 from __future__ import division
 
+try:  # first, assume we are in cPython and numpy is installed
+    from typing import Tuple
+    import numpy as np
+except Exception:  # we are in IronPython or numpy is not installed
+    np, Tuple = None, None
+
 from ladybug_geometry.bounding import bounding_box
 from ladybug_geometry.geometry3d import Vector3D, Mesh3D, Face3D
 from ladybug.datatype.time import Time
@@ -209,7 +215,12 @@ class DirectSunStudy(object):
             self._compute_intersection_matrix()
         # sum the intersection and sky matrices
         t_step = self.timestep
-        self._direct_sun_hours = (self._intersection_matrix.sum(axis=1) / t_step).tolist()
+        if np is None:  # perform the calculation on float numbers
+            self._direct_sun_hours = \
+                [sum(int_list) / t_step for int_list in self._intersection_matrix]
+        else:  # perform the calculation with numpy matrices
+            self._direct_sun_hours = \
+                (self._intersection_matrix.sum(axis=1) / t_step).tolist()
 
     def draw(self, legend_parameters=None):
         """Draw a colored study_mesh, compass, graphic/legend, and title.
