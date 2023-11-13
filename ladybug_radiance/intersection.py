@@ -11,6 +11,7 @@ try:  # first, assume we are in cPython and numpy is installed
 except Exception:  # we are in IronPython or numpy is not installed
     np, Tuple = None, None
 
+from ladybug_geometry.interop.obj import OBJ
 from ladybug_geometry.geometry3d import Face3D, Mesh3D
 from ladybug.futil import write_to_file_by_name
 from ladybug.viewsphere import view_sphere
@@ -22,8 +23,10 @@ if folders.radbin_path is not None:
         os.name == 'nt' else os.path.join(folders.radbin_path, 'oconv')
     RCONTRIB_EXE = os.path.join(folders.radbin_path, 'rcontrib.exe') if \
         os.name == 'nt' else os.path.join(folders.radbin_path, 'rcontrib')
+    OBJ2MESH_EXE = os.path.join(folders.radbin_path, 'obj2mesh.exe') if \
+        os.name == 'nt' else os.path.join(folders.radbin_path, 'obj2mesh')
 else:
-    OCONV_EXE, RCONTRIB_EXE = None, None
+    OCONV_EXE, RCONTRIB_EXE, OBJ2MESH_EXE = None, None
 BLACK = 'void plastic black 0 0 5 0.0 0.0 0.0 0.0 0.0'
 
 
@@ -63,13 +66,23 @@ def intersection_matrix(vectors, points, normals, context_geometry,
     # set a default sim folder if None is specified
     if sim_folder is None:
         sim_folder = tempfile.gettempdir()
-    # account for the offset distance
-    if offset_distance != 0:
-        points = [pt.move(vec * offset_distance) for pt, vec in zip(points, normals)]
+
+    # get the environment variables and update the current working directory
+    assert OCONV_EXE is not None, 'No Radiance installation was found.'
+    g_env = os.environ.copy()
+    if folders.env:
+        for k, v in folders.env.items():
+            if k.strip().upper() == 'PATH':
+                g_env['PATH'] = os.pathsep.join((v, g_env['PATH']))
+            if k.strip().upper() == 'RAYPATH':
+                g_env['RAYPATH'] = os.pathsep.join((v, sim_folder))
+    cur_dir = os.getcwd()
+    os.chdir(sim_folder)
 
     # write the geometry to .rad files
     geo_strs = [BLACK]
     base_geo = 'black polygon {} 0 0 {} {}'
+    meshes_for_obj = []
     for i, geo in enumerate(context_geometry):
         if isinstance(geo, Face3D):
             coords = tuple(str(v) for pt in geo.vertices for v in pt.to_array())
@@ -77,11 +90,21 @@ def intersection_matrix(vectors, points, normals, context_geometry,
             geo_str = base_geo.format(poly_id, len(coords), ' '.join(coords))
             geo_strs.append(geo_str)
         elif isinstance(geo, Mesh3D):
-            for fi, f_geo in enumerate(geo.face_vertices):
-                coords = tuple(str(v) for pt in f_geo for v in pt.to_array())
-                poly_id = 'poly_{}_{}'.format(i, fi)
-                geo_str = base_geo.format(poly_id, len(coords), ' '.join(coords))
-                geo_strs.append(geo_str)
+            meshes_for_obj.append(geo)
+    if len(meshes_for_obj) != 0:
+        transl_obj = OBJ.from_mesh3ds(meshes_for_obj)
+        transl_obj.material_structure = (('black', 0),)
+        obj_file = 'scene_mesh.obj'
+        transl_obj.to_file(sim_folder, obj_file)
+        scene_msh = 'scene_mesh.msh'
+        cmd = '"{}" "{}" > "{}"'.format(OBJ2MESH_EXE, obj_file, scene_msh)
+        cmd = cmd.replace('\\', '/')
+        process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
+        output = process.communicate()
+        if output[1]:
+            print(output[1])
+        geo_str = 'black mesh scene_mesh\n1 {}\n0\n0'.format(scene_msh)
+        geo_strs.append(geo_str)
     scene_file = 'geometry.rad'
     write_to_file_by_name(sim_folder, scene_file, '\n'.join(geo_strs))
 
@@ -102,6 +125,8 @@ def intersection_matrix(vectors, points, normals, context_geometry,
     write_to_file_by_name(sim_folder, vec_mod_file, '\n'.join(vec_mods))
 
     # create the .pts file
+    if offset_distance != 0:  # account for the offset distance
+        points = [pt.move(vec * offset_distance) for pt, vec in zip(points, normals)]
     sensors = []
     for pt, vec in zip(points, normals):
         sen_str = '%s %s' % (' '.join(str(v) for v in pt), ' '.join(str(v) for v in vec))
@@ -109,24 +134,14 @@ def intersection_matrix(vectors, points, normals, context_geometry,
     pts_file = 'sensors.pts'
     write_to_file_by_name(sim_folder, pts_file, '\n'.join(sensors))
 
-    # get the environment variables and update the current working directory
-    assert OCONV_EXE is not None, 'No Radiance installation was found.'
-    g_env = os.environ.copy()
-    if folders.env:
-        for k, v in folders.env.items():
-            if k.strip().upper() == 'PATH':
-                g_env['PATH'] = os.pathsep.join((v, g_env['PATH']))
-            else:
-                g_env[k] = v
-    cur_dir = os.getcwd()
-    os.chdir(sim_folder)
-
     # create the octree
     scene_oct = 'scene.oct'
     cmd = '"{}" "{}" "{}" > "{}"'.format(OCONV_EXE, vec_file, scene_file, scene_oct)
     cmd = cmd.replace('\\', '/')
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, env=g_env)
-    process.communicate()
+    process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
+    output = process.communicate()
+    if output[1]:
+        print(output[1])
 
     # run the ray tracing command
     output_mtx = 'results.mtx'
@@ -140,8 +155,10 @@ def intersection_matrix(vectors, points, normals, context_geometry,
         cmd = '"{}" {} "{}" < "{}" > "{}"'.format(
             RCONTRIB_EXE, rc_options, scene_oct, pts_file, output_mtx)
     cmd = cmd.replace('\\', '/')
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, env=g_env)
-    process.communicate()
+    process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
+    output = process.communicate()
+    if output[1]:
+        print(output[1])
 
     # put back the current working directory and load the intersection matrix
     os.chdir(cur_dir)
