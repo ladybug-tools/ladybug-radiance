@@ -73,6 +73,9 @@ def intersection_matrix(
     # set a default sim folder if None is specified
     if sim_folder is None:
         sim_folder = tempfile.gettempdir()
+    else:
+        if not os.path.isdir(sim_folder):
+            os.makedirs(sim_folder)
 
     # get the environment variables and update the current working directory
     assert OCONV_EXE is not None, 'No Radiance installation was found.'
