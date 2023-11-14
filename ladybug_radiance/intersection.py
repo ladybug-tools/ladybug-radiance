@@ -30,8 +30,10 @@ else:
 BLACK = 'void plastic black 0 0 5 0.0 0.0 0.0 0.0 0.0'
 
 
-def intersection_matrix(vectors, points, normals, context_geometry,
-                        offset_distance=0, numericalize=False, sim_folder=None):
+def intersection_matrix(
+        vectors, points, normals, context_geometry,
+        offset_distance=0, numericalize=False, sim_folder=None, use_radiance_mesh=False
+    ):
     """Compute the intersection matrix between vectors and points.
 
     Args:
@@ -55,6 +57,11 @@ def intersection_matrix(vectors, points, normals, context_geometry,
         sim_folder: An optional path to a folder where the simulation files
             will be written. If None, a temporary directory will be
             used. (Default: None).
+        use_radiance_mesh: A boolean to note whether input Mesh3D should be translated
+            to Radiance Meshes for simulation or whether they should simply have
+            their faces translated to Radiance polygons. For complex context geometry,
+            Radiance meshes will use less memory but they take a longer time
+            to prepare compared to polygons. (Default: False).
 
     Returns:
         A lists of lists, which can be used to account for context shade surrounding
@@ -92,19 +99,27 @@ def intersection_matrix(vectors, points, normals, context_geometry,
         elif isinstance(geo, Mesh3D):
             meshes_for_obj.append(geo)
     if len(meshes_for_obj) != 0:
-        transl_obj = OBJ.from_mesh3ds(meshes_for_obj)
-        transl_obj.material_structure = (('black', 0),)
-        obj_file = 'scene_mesh.obj'
-        transl_obj.to_file(sim_folder, obj_file)
-        scene_msh = 'scene_mesh.msh'
-        cmd = '"{}" "{}" > "{}"'.format(OBJ2MESH_EXE, obj_file, scene_msh)
-        cmd = cmd.replace('\\', '/')
-        process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
-        output = process.communicate()
-        if output[1]:
-            print(output[1])
-        geo_str = 'black mesh scene_mesh\n1 {}\n0\n0'.format(scene_msh)
-        geo_strs.append(geo_str)
+        if use_radiance_mesh:
+            transl_obj = OBJ.from_mesh3ds(meshes_for_obj)
+            transl_obj.material_structure = (('black', 0),)
+            obj_file = 'scene_mesh.obj'
+            transl_obj.to_file(sim_folder, obj_file)
+            scene_msh = 'scene_mesh.msh'
+            cmd = '"{}" "{}" > "{}"'.format(OBJ2MESH_EXE, obj_file, scene_msh)
+            cmd = cmd.replace('\\', '/')
+            process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
+            output = process.communicate()
+            if output[1]:
+                print(output[1])
+            geo_str = 'black mesh scene_mesh\n1 {}\n0\n0'.format(scene_msh)
+            geo_strs.append(geo_str)
+        else:
+            for geo in meshes_for_obj:
+                for fi, f_geo in enumerate(geo.face_vertices):
+                    coords = tuple(str(v) for pt in f_geo for v in pt.to_array())
+                    poly_id = 'poly_{}_{}'.format(i, fi)
+                    geo_str = base_geo.format(poly_id, len(coords), ' '.join(coords))
+                    geo_strs.append(geo_str)
     scene_file = 'geometry.rad'
     write_to_file_by_name(sim_folder, scene_file, '\n'.join(geo_strs))
 
@@ -181,8 +196,10 @@ def intersection_matrix(vectors, points, normals, context_geometry,
     return int_mtx
 
 
-def sky_intersection_matrix(sky_matrix, points, normals, context_geometry,
-                            offset_distance=0, numericalize=False, sim_folder=None):
+def sky_intersection_matrix(
+        sky_matrix, points, normals, context_geometry,
+        offset_distance=0, numericalize=False, sim_folder=None, use_radiance_mesh=False
+    ):
     """Compute the intersection matrix between a sky matrix through points.
 
     Args:
@@ -205,6 +222,11 @@ def sky_intersection_matrix(sky_matrix, points, normals, context_geometry,
         sim_folder: An optional path to a folder where the simulation files
             will be written. If None, a temporary directory will be
             used. (Default: None).
+        use_radiance_mesh: A boolean to note whether input Mesh3D should be translated
+            to Radiance Meshes for simulation or whether they should simply have
+            their faces translated to Radiance polygons. For complex context geometry,
+            Radiance meshes will use less memory but they take a longer time
+            to prepare compared to polygons. (Default: False).
 
     Returns:
         A lists of lists, which can be used to account for context shade surrounding
@@ -225,7 +247,7 @@ def sky_intersection_matrix(sky_matrix, points, normals, context_geometry,
     # compute the intersection matrix
     return intersection_matrix(
         vectors, points, normals, context_geometry,
-        offset_distance, numericalize, sim_folder)
+        offset_distance, numericalize, sim_folder, use_radiance_mesh)
 
 
 def binary_to_array(binary_file, nrows=None, ncols= None, ncomp=None, line_count=0):

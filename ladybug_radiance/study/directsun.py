@@ -43,6 +43,11 @@ class DirectSunStudy(object):
             mesh (False). (Default: False).
         sim_folder: An optional path to a folder where the simulation files will
             be written. If None, a temporary directory will be used. (Default: None).
+        use_radiance_mesh: A boolean to note whether input Mesh3D should be translated
+            to Radiance Meshes for simulation or whether they should simply have
+            their faces translated to Radiance polygons. For complex context geometry,
+            Radiance meshes will use less memory but they take a longer time
+            to prepare compared to polygons. (Default: False).
 
     Properties:
         * vectors
@@ -52,6 +57,7 @@ class DirectSunStudy(object):
         * offset_distance
         * by_vertex
         * sim_folder
+        * use_radiance_mesh
         * study_points
         * study_normals
         * intersection_matrix
@@ -60,10 +66,12 @@ class DirectSunStudy(object):
     __slots__ = (
         '_vectors', '_timestep', '_study_mesh', '_context_geometry',
         '_offset_distance', '_by_vertex', '_study_points', '_study_normals',
-        '_sim_folder', '_intersection_matrix', '_direct_sun_hours')
+        '_sim_folder', '_use_radiance_mesh', '_intersection_matrix', '_direct_sun_hours')
 
-    def __init__(self, vectors, study_mesh, context_geometry, timestep=1,
-                 offset_distance=0, by_vertex=False, sim_folder=None):
+    def __init__(
+            self, vectors, study_mesh, context_geometry, timestep=1,
+            offset_distance=0, by_vertex=False, sim_folder=None, use_radiance_mesh=False
+        ):
         """Initialize RadiationDome."""
         # set default values, which will be overwritten when the study is run
         self._offset_distance = float(offset_distance)
@@ -74,6 +82,7 @@ class DirectSunStudy(object):
         self.study_mesh = study_mesh
         self.context_geometry = context_geometry
         self.sim_folder = sim_folder
+        self.use_radiance_mesh = use_radiance_mesh
         # set default values, which will be overwritten when the study is run
         self._intersection_matrix = None
         self._direct_sun_hours = None
@@ -178,6 +187,16 @@ class DirectSunStudy(object):
         self._sim_folder = value
 
     @property
+    def use_radiance_mesh(self):
+        """Get or set a boolean for whether Radiance Meshes are used in the simulation.
+        """
+        return self._use_radiance_mesh
+
+    @use_radiance_mesh.setter
+    def use_radiance_mesh(self, value):
+        self._use_radiance_mesh = bool(value)
+
+    @property
     def study_points(self):
         """Get a tuple of Point3Ds for the points of the study."""
         return self._study_points
@@ -279,7 +298,7 @@ class DirectSunStudy(object):
         self._intersection_matrix = intersection_matrix(
             rev_vecs, self.study_points, self.study_normals,
             self.context_geometry, self.offset_distance, numericalize=False,
-            sim_folder=self.sim_folder)
+            sim_folder=self.sim_folder, use_radiance_mesh=self.use_radiance_mesh)
 
     def ToString(self):
         """Overwrite .NET ToString."""
