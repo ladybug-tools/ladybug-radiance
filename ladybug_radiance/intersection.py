@@ -27,6 +27,7 @@ if folders.radbin_path is not None:
         os.name == 'nt' else os.path.join(folders.radbin_path, 'obj2mesh')
 else:
     OCONV_EXE, RCONTRIB_EXE, OBJ2MESH_EXE = None, None
+OCTREE_RES = 32768  # resolution of the octree to use
 BLACK = 'void plastic black 0 0 5 0.0 0.0 0.0 0.0 0.0'
 
 
@@ -108,7 +109,8 @@ def intersection_matrix(
             obj_file = 'scene_mesh.obj'
             transl_obj.to_file(sim_folder, obj_file)
             scene_msh = 'scene_mesh.msh'
-            cmd = '"{}" "{}" > "{}"'.format(OBJ2MESH_EXE, obj_file, scene_msh)
+            cmd = '"{}" -r {} "{}" > "{}"'.format(
+                OBJ2MESH_EXE, OCTREE_RES, obj_file, scene_msh)
             cmd = cmd.replace('\\', '/')
             process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
             output = process.communicate()
@@ -154,7 +156,8 @@ def intersection_matrix(
 
     # create the octree
     scene_oct = 'scene.oct'
-    cmd = '"{}" "{}" "{}" > "{}"'.format(OCONV_EXE, vec_file, scene_file, scene_oct)
+    cmd = '"{}" -r {} "{}" "{}" > "{}"'.format(
+        OCONV_EXE, OCTREE_RES, vec_file, scene_file, scene_oct)
     cmd = cmd.replace('\\', '/')
     process = subprocess.Popen(cmd, stderr=subprocess.PIPE, shell=True, env=g_env)
     output = process.communicate()
