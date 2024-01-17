@@ -26,7 +26,7 @@ if folders.radbin_path is not None:
     OBJ2MESH_EXE = os.path.join(folders.radbin_path, 'obj2mesh.exe') if \
         os.name == 'nt' else os.path.join(folders.radbin_path, 'obj2mesh')
 else:
-    OCONV_EXE, RCONTRIB_EXE, OBJ2MESH_EXE = None, None
+    OCONV_EXE, RCONTRIB_EXE, OBJ2MESH_EXE = None, None, None
 OCTREE_RES = 32768  # resolution of the octree to use
 BLACK = 'void plastic black 0 0 5 0.0 0.0 0.0 0.0 0.0'
 
