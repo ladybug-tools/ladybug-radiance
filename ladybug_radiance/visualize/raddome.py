@@ -56,8 +56,8 @@ class RadiationDome(object):
             dome hemisphere to the 2D plane. If None, a 3D sky dome will be drawn
             instead of a 2D one. (Default: None) Choose from the following.
 
-                * Orthographic
-                * Stereographic
+            * Orthographic
+            * Stereographic
 
     Properties:
         * azimuth_count
@@ -341,11 +341,16 @@ class RadiationDome(object):
                 point assigned to the object instance is used. (Default: None).
 
         Returns:
-            dome_mesh: A colored Mesh3D for the dome radiation.
-            compass: A ladybug Compass object for the dome.
-            graphic: A GraphicContainer for the colored arrow mesh, indicating the
+            A tuple with four values.
+
+            -   dome_mesh -- A colored Mesh3D for the dome radiation.
+
+            -   compass -- A ladybug Compass object for the dome.
+
+            -   graphic -- A GraphicContainer for the colored arrow mesh, indicating the
                 legend and title location for the dome.
-            dome_title: Text for the title of the dome.
+
+            -   dome_title -- Text for the title of the dome.
         """
         # get the dome data to be plotted and the center point
         if rad_type.lower() == 'total':

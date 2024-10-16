@@ -33,8 +33,8 @@ class SkyDome(object):
             dome hemisphere to the 2D plane. If None, a 3D sky dome will be drawn
             instead of a 2D one. (Default: None) Choose from the following.
 
-                * Orthographic
-                * Stereographic
+            * Orthographic
+            * Stereographic
 
     Properties:
         * legend_parameters
@@ -193,12 +193,18 @@ class SkyDome(object):
                 object instance is used. (Default: None).
 
         Returns:
-            dome_mesh: A colored Mesh3D for the dome.
-            dome_compass: A ladybug Compass object for the dome.
-            graphic: A GraphicContainer for the colored dome mesh, indicating the
+            A tuple with five values.
+
+            -   dome_mesh -- A colored Mesh3D for the dome.
+
+            -   dome_compass -- A ladybug Compass object for the dome.
+
+            -   graphic -- A GraphicContainer for the colored dome mesh, indicating the
                 legend and title location for the dome.
-            dome_title: Text for the title of the dome.
-            values: A list of radiation values that align with the dome_mesh faces.
+
+            -   dome_title -- Text for the title of the dome.
+
+            -   values -- A list of radiation values that align with the dome_mesh faces.
         """
         # get the dome data to be plotted
         if rad_type.lower() == 'total':

@@ -79,8 +79,7 @@ class RadiationStudy(object):
 
     def __init__(
             self, sky_matrix, study_mesh, context_geometry,
-            offset_distance=0, by_vertex=False, sim_folder=None, use_radiance_mesh=False
-        ):
+            offset_distance=0, by_vertex=False, sim_folder=None, use_radiance_mesh=False):
         """Initialize RadiationStudy."""
         # set default values, which will be overwritten when the study is run
         self._offset_distance = float(offset_distance)
@@ -289,10 +288,14 @@ class RadiationStudy(object):
                 Irradiance (W/m2) [True]. (Default: False).
 
         Returns:
-            colored_mesh: A colored Mesh3D for the study results.
-            graphic: A GraphicContainer for the colored mesh, indicating the
-                legend and title location for the study.
-            title: Text for the title of the study.
+            A tuple with three values.
+
+            -   colored_mesh -- A colored Mesh3D for the study results.
+
+            -   graphic -- A GraphicContainer for the colored mesh, indicating the
+                    legend and title location for the study.
+
+            -   title -- Text for the title of the study.
         """
         # get the radiation data
         if plot_irradiance:

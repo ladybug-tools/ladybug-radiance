@@ -70,8 +70,7 @@ class DirectSunStudy(object):
 
     def __init__(
             self, vectors, study_mesh, context_geometry, timestep=1,
-            offset_distance=0, by_vertex=False, sim_folder=None, use_radiance_mesh=False
-        ):
+            offset_distance=0, by_vertex=False, sim_folder=None, use_radiance_mesh=False):
         """Initialize RadiationDome."""
         # set default values, which will be overwritten when the study is run
         self._offset_distance = float(offset_distance)
@@ -250,10 +249,14 @@ class DirectSunStudy(object):
                 used. (Default: None).
 
         Returns:
-            colored_mesh: A colored Mesh3D for the study results.
-            graphic: A GraphicContainer for the colored mesh, indicating the
-                legend and title location for the study.
-            title: Text for the title of the study.
+            A tuple with three values.
+
+            -   colored_mesh -- A colored Mesh3D for the study results.
+
+            -   graphic -- A GraphicContainer for the colored mesh, indicating the
+                    legend and title location for the study.
+
+            -   title -- Text for the title of the study.
         """
         # get the direct sun data
         d_type, unit, title = Time(), 'hr', 'Direct Sun Hours'
@@ -310,4 +313,3 @@ class DirectSunStudy(object):
     def __repr__(self):
         """Direct Sun Study object representation."""
         return 'DirectSunStudy [{} values]'.format(len(self.study_points))
-

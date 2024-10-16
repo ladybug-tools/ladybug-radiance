@@ -292,12 +292,18 @@ class RadiationRose(object):
                 another. (Default: None).
 
         Returns:
-            arrow_mesh: A colored Mesh3D for the rose arrows.
-            orientation_lines: A list of LineSegment3D for each direction.
-            compass: A ladybug Compass object for the rose.
-            graphic: A GraphicContainer for the colored arrow mesh, indicating the
+            A tuple with five values.
+
+            -   arrow_mesh -- A colored Mesh3D for the rose arrows.
+
+            -   orientation_lines -- A list of LineSegment3D for each direction.
+
+            -   compass -- A ladybug Compass object for the rose.
+
+            -   graphic -- A GraphicContainer for the colored arrow mesh, indicating the
                 legend and title location for the rose.
-            rose_title: Text for the title of the rose.
+
+            -   rose_title -- Text for the title of the rose.
         """
         # get the dome data to be plotted and the center point
         if rad_type.lower() == 'total':
