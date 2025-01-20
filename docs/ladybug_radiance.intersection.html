@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ladybug_radiance.intersection module &#8212; ladybug radiance  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=0bf093e7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=45cd8fae" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ladybug_radiance.skymatrix module" href="ladybug_radiance.skymatrix.html" />
+    <link rel="prev" title="ladybug_radiance.config module" href="ladybug_radiance.config.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          ladybug radiance</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli/index.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ladybug_radiance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_radiance.html">ladybug_radiance package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ladybug_radiance.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.study.html">ladybug_radiance.study package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_radiance.study.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.study.directsun.html">ladybug_radiance.study.directsun module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy"><code class="docutils literal notranslate"><span class="pre">DirectSunStudy</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.compute"><code class="docutils literal notranslate"><span class="pre">compute()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.by_vertex"><code class="docutils literal notranslate"><span class="pre">by_vertex</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.context_geometry"><code class="docutils literal notranslate"><span class="pre">context_geometry</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.direct_sun_hours"><code class="docutils literal notranslate"><span class="pre">direct_sun_hours</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.offset_distance"><code class="docutils literal notranslate"><span class="pre">offset_distance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.sim_folder"><code class="docutils literal notranslate"><span class="pre">sim_folder</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.study_mesh"><code class="docutils literal notranslate"><span class="pre">study_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.study_normals"><code class="docutils literal notranslate"><span class="pre">study_normals</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.study_points"><code class="docutils literal notranslate"><span class="pre">study_points</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.timestep"><code class="docutils literal notranslate"><span class="pre">timestep</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.use_radiance_mesh"><code class="docutils literal notranslate"><span class="pre">use_radiance_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.vectors"><code class="docutils literal notranslate"><span class="pre">vectors</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.study.radiation.html">ladybug_radiance.study.radiation module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy"><code class="docutils literal notranslate"><span class="pre">RadiationStudy</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.compute"><code class="docutils literal notranslate"><span class="pre">compute()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.total_radiation"><code class="docutils literal notranslate"><span class="pre">total_radiation()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.by_vertex"><code class="docutils literal notranslate"><span class="pre">by_vertex</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.context_geometry"><code class="docutils literal notranslate"><span class="pre">context_geometry</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.irradiance_values"><code class="docutils literal notranslate"><span class="pre">irradiance_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.offset_distance"><code class="docutils literal notranslate"><span class="pre">offset_distance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.radiation_values"><code class="docutils literal notranslate"><span class="pre">radiation_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.sim_folder"><code class="docutils literal notranslate"><span class="pre">sim_folder</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.sky_matrix"><code class="docutils literal notranslate"><span class="pre">sky_matrix</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.study_mesh"><code class="docutils literal notranslate"><span class="pre">study_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.study_normals"><code class="docutils literal notranslate"><span class="pre">study_normals</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.study_points"><code class="docutils literal notranslate"><span class="pre">study_points</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.use_radiance_mesh"><code class="docutils literal notranslate"><span class="pre">use_radiance_mesh</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_radiance.study.html#module-ladybug_radiance.study">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.visualize.html">ladybug_radiance.visualize package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_radiance.visualize.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html">ladybug_radiance.visualize.raddome module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome"><code class="docutils literal notranslate"><span class="pre">RadiationDome</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.dome_vectors"><code class="docutils literal notranslate"><span class="pre">dome_vectors()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.PROJECTIONS"><code class="docutils literal notranslate"><span class="pre">PROJECTIONS</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.altitude_count"><code class="docutils literal notranslate"><span class="pre">altitude_count</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.azimuth_count"><code class="docutils literal notranslate"><span class="pre">azimuth_count</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.center_point"><code class="docutils literal notranslate"><span class="pre">center_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.direction_vectors"><code class="docutils literal notranslate"><span class="pre">direction_vectors</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.dome_mesh"><code class="docutils literal notranslate"><span class="pre">dome_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.max_direction"><code class="docutils literal notranslate"><span class="pre">max_direction</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.max_info"><code class="docutils literal notranslate"><span class="pre">max_info</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.max_point"><code class="docutils literal notranslate"><span class="pre">max_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.plot_irradiance"><code class="docutils literal notranslate"><span class="pre">plot_irradiance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.projection"><code class="docutils literal notranslate"><span class="pre">projection</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.radius"><code class="docutils literal notranslate"><span class="pre">radius</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.total_values"><code class="docutils literal notranslate"><span class="pre">total_values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html">ladybug_radiance.visualize.radrose module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose"><code class="docutils literal notranslate"><span class="pre">RadiationRose</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.radial_vectors"><code class="docutils literal notranslate"><span class="pre">radial_vectors()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.arrow_scale"><code class="docutils literal notranslate"><span class="pre">arrow_scale</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.center_point"><code class="docutils literal notranslate"><span class="pre">center_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.direction_count"><code class="docutils literal notranslate"><span class="pre">direction_count</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.direction_vectors"><code class="docutils literal notranslate"><span class="pre">direction_vectors</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.plot_irradiance"><code class="docutils literal notranslate"><span class="pre">plot_irradiance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.radius"><code class="docutils literal notranslate"><span class="pre">radius</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.tilt_angle"><code class="docutils literal notranslate"><span class="pre">tilt_angle</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.total_values"><code class="docutils literal notranslate"><span class="pre">total_values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html">ladybug_radiance.visualize.skydome module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome"><code class="docutils literal notranslate"><span class="pre">SkyDome</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.PROJECTIONS"><code class="docutils literal notranslate"><span class="pre">PROJECTIONS</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.center_point"><code class="docutils literal notranslate"><span class="pre">center_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.patch_vectors"><code class="docutils literal notranslate"><span class="pre">patch_vectors</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.plot_irradiance"><code class="docutils literal notranslate"><span class="pre">plot_irradiance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.projection"><code class="docutils literal notranslate"><span class="pre">projection</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.radius"><code class="docutils literal notranslate"><span class="pre">radius</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.total_values"><code class="docutils literal notranslate"><span class="pre">total_values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_radiance.visualize.html#module-ladybug_radiance.visualize">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_radiance.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.config.html">ladybug_radiance.config module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders"><code class="docutils literal notranslate"><span class="pre">Folders</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.config_file"><code class="docutils literal notranslate"><span class="pre">config_file</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.env"><code class="docutils literal notranslate"><span class="pre">env</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.radbin_path"><code class="docutils literal notranslate"><span class="pre">radbin_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_path"><code class="docutils literal notranslate"><span class="pre">radiance_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_version"><code class="docutils literal notranslate"><span class="pre">radiance_version</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_version_date"><code class="docutils literal notranslate"><span class="pre">radiance_version_date</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_version_str"><code class="docutils literal notranslate"><span class="pre">radiance_version_str</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.config.html#ladybug_radiance.config.Folders.radlib_path"><code class="docutils literal notranslate"><span class="pre">radlib_path</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ladybug_radiance.intersection module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.binary_mtx_dimension"><code class="docutils literal notranslate"><span class="pre">binary_mtx_dimension()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.binary_to_array"><code class="docutils literal notranslate"><span class="pre">binary_to_array()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.sky_intersection_matrix"><code class="docutils literal notranslate"><span class="pre">sky_intersection_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.skymatrix.html">ladybug_radiance.skymatrix module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix"><code class="docutils literal notranslate"><span class="pre">SkyMatrix</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.compute_sky"><code class="docutils literal notranslate"><span class="pre">compute_sky()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_ashrae_clear_sky"><code class="docutils literal notranslate"><span class="pre">from_ashrae_clear_sky()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_components"><code class="docutils literal notranslate"><span class="pre">from_components()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_components_benefit"><code class="docutils literal notranslate"><span class="pre">from_components_benefit()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_epw"><code class="docutils literal notranslate"><span class="pre">from_epw()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_epw_benefit"><code class="docutils literal notranslate"><span class="pre">from_epw_benefit()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_stat"><code class="docutils literal notranslate"><span class="pre">from_stat()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.LINE_BREAK"><code class="docutils literal notranslate"><span class="pre">LINE_BREAK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.PATCHES_PER_ROW"><code class="docutils literal notranslate"><span class="pre">PATCHES_PER_ROW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.PATCH_ROW_COEFF"><code class="docutils literal notranslate"><span class="pre">PATCH_ROW_COEFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.SEPARATOR"><code class="docutils literal notranslate"><span class="pre">SEPARATOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.benefit_matrix"><code class="docutils literal notranslate"><span class="pre">benefit_matrix</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.data"><code class="docutils literal notranslate"><span class="pre">data</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.folder"><code class="docutils literal notranslate"><span class="pre">folder</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.ground_reflectance"><code class="docutils literal notranslate"><span class="pre">ground_reflectance</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.high_density"><code class="docutils literal notranslate"><span class="pre">high_density</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.wea"><code class="docutils literal notranslate"><span class="pre">wea</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.wea_duration"><code class="docutils literal notranslate"><span class="pre">wea_duration</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_radiance.html#module-ladybug_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ladybug_radiance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_radiance.html">ladybug_radiance package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ladybug_radiance.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_radiance.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.config.html">ladybug_radiance.config module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ladybug_radiance.intersection module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.binary_mtx_dimension"><code class="docutils literal notranslate"><span class="pre">binary_mtx_dimension()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.binary_to_array"><code class="docutils literal notranslate"><span class="pre">binary_to_array()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.sky_intersection_matrix"><code class="docutils literal notranslate"><span class="pre">sky_intersection_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.skymatrix.html">ladybug_radiance.skymatrix module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_radiance.html#module-ladybug_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ladybug_radiance.config.html" title="Previous Chapter: ladybug_radiance.config module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; ladybug_radia...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ladybug_radiance.skymatrix.html" title="Next Chapter: ladybug_radiance.skymatrix module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">ladybug_radia... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ladybug_radiance.intersection.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ladybug_radiance</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_radiance.html">ladybug_radiance package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ladybug_radiance.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_radiance.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.config.html">ladybug_radiance.config module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ladybug_radiance.intersection module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.binary_mtx_dimension"><code class="docutils literal notranslate"><span class="pre">binary_mtx_dimension()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.binary_to_array"><code class="docutils literal notranslate"><span class="pre">binary_to_array()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ladybug_radiance.intersection.sky_intersection_matrix"><code class="docutils literal notranslate"><span class="pre">sky_intersection_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_radiance.skymatrix.html">ladybug_radiance.skymatrix module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_radiance.html#module-ladybug_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <section id="module-ladybug_radiance.intersection">
+<span id="ladybug-radiance-intersection-module"></span><h1>ladybug_radiance.intersection module<a class="headerlink" href="#module-ladybug_radiance.intersection" title="Link to this heading">¶</a></h1>
+<p>Function to compute the intersection between vectors and points.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ladybug_radiance.intersection.binary_mtx_dimension">
+<span class="sig-prename descclassname"><span class="pre">ladybug_radiance.intersection.</span></span><span class="sig-name descname"><span class="pre">binary_mtx_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_radiance/intersection.html#binary_mtx_dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ladybug_radiance.intersection.binary_mtx_dimension" title="Link to this definition">¶</a></dt>
+<dd><p>Return binary Radiance matrix dimensions if it exists.</p>
+<p>This function returns NROWS, NCOLS, NCOMP and number of header lines including the
+empty line after last header line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Full path to Radiance file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple with 4 integers. nrows, ncols, ncomp, line_count</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ladybug_radiance.intersection.binary_to_array">
+<span class="sig-prename descclassname"><span class="pre">ladybug_radiance.intersection.</span></span><span class="sig-name descname"><span class="pre">binary_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">binary_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncomp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_radiance/intersection.html#binary_to_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ladybug_radiance.intersection.binary_to_array" title="Link to this definition">¶</a></dt>
+<dd><p>Read a Radiance binary file as a NumPy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>binary_file</strong> – Path to binary Radiance file.</p></li>
+<li><p><strong>nrows</strong> – Number of rows in the Radiance file.</p></li>
+<li><p><strong>ncols</strong> – Number of columns in the Radiance file.</p></li>
+<li><p><strong>ncomp</strong> – Number of components of each element in the Radiance file.</p></li>
+<li><p><strong>line_count</strong> – Number of lines to skip in the input file. Usually used to
+skip the header.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A NumPy array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ladybug_radiance.intersection.intersection_matrix">
+<span class="sig-prename descclassname"><span class="pre">ladybug_radiance.intersection.</span></span><span class="sig-name descname"><span class="pre">intersection_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vectors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numericalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_radiance_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_radiance/intersection.html#intersection_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ladybug_radiance.intersection.intersection_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the intersection matrix between vectors and points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vectors</strong> – A list of ladybug geometry Vector3D which will be projected from
+the points of the study_mesh through the context_geometry.</p></li>
+<li><p><strong>points</strong> – A list of ladybug geometry Point3D representing the sensors
+to be studied.</p></li>
+<li><p><strong>normals</strong> – A list of ladybug geometry Vector3D that matches the length of
+the points list and indicate the normal direction of each point.
+THESE VECTORS MUST BE NORMALIZED.</p></li>
+<li><p><strong>context_geometry</strong> – A list of ladybug geometry Face3D and/or Mesh3D that
+can block the vectors projected from the test points.</p></li>
+<li><p><strong>offset_distance</strong> – An optional number to offset the sensor points before
+the vectors are cast through the context_geometry. (Default: 0).</p></li>
+<li><p><strong>numericalize</strong> – A boolean to note whether the output matrix should contain
+numbers representing the cosine of the angle between the normal and
+each vector or it should simply be a matrix of booleans for whether
+the vector is seen by the surface (True) or not (False). Numbers
+can be useful for computing radiation and irradiance while the booleans
+are more helpful for direct sun and view studies. (Default: False).</p></li>
+<li><p><strong>sim_folder</strong> – An optional path to a folder where the simulation files
+will be written. If None, a temporary directory will be
+used. (Default: None).</p></li>
+<li><p><strong>use_radiance_mesh</strong> – A boolean to note whether input Mesh3D should be translated
+to Radiance Meshes for simulation or whether they should simply have
+their faces translated to Radiance polygons. For complex context geometry,
+Radiance meshes will use less memory but they take a longer time
+to prepare compared to polygons. (Default: False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A lists of lists, which can be used to account for context shade surrounding
+visualizations or geometry. The matrix will have a length equal to the points
+(and normals). Each sub-list consists of booleans and has a length equal to
+the number of vectors. True indicates that a certain patch is seen and False
+indicates that the match is blocked.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ladybug_radiance.intersection.sky_intersection_matrix">
+<span class="sig-prename descclassname"><span class="pre">ladybug_radiance.intersection.</span></span><span class="sig-name descname"><span class="pre">sky_intersection_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sky_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_geometry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numericalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_radiance_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_radiance/intersection.html#sky_intersection_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ladybug_radiance.intersection.sky_intersection_matrix" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the intersection matrix between a sky matrix through points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sky_matrix</strong> – A SkyMatrix object, which provides the vectors to be projected
+from the points through the context_geometry.</p></li>
+<li><p><strong>points</strong> – A list of ladybug geometry Point3D representing the sensors
+to be studied.</p></li>
+<li><p><strong>normals</strong> – A list of ladybug geometry Vector3D that matches the length of
+the points list and indicate the normal direction of each point.</p></li>
+<li><p><strong>context_geometry</strong> – A list of ladybug geometry Face3D that can block the
+vectors projected from the test points.</p></li>
+<li><p><strong>offset_distance</strong> – An optional number to offset the sensor points before
+the vectors are cast through the context_geometry. (Default: 0).</p></li>
+<li><p><strong>numericalize</strong> – A boolean to note whether the output matrix should contain
+numbers representing the cosine of the angle between the normal and
+each vector or it should simply be a matrix of booleans for whether
+the vector is seen by the surface (True) or not (False). Numbers
+can be useful for computing radiation and irradiance while the booleans
+are more helpful for direct sun and view studies. (Default: False).</p></li>
+<li><p><strong>sim_folder</strong> – An optional path to a folder where the simulation files
+will be written. If None, a temporary directory will be
+used. (Default: None).</p></li>
+<li><p><strong>use_radiance_mesh</strong> – A boolean to note whether input Mesh3D should be translated
+to Radiance Meshes for simulation or whether they should simply have
+their faces translated to Radiance polygons. For complex context geometry,
+Radiance meshes will use less memory but they take a longer time
+to prepare compared to polygons. (Default: False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A lists of lists, which can be used to account for context shade surrounding
+visualizations or geometry. The matrix will have a length equal to the points
+(and normals). Each sub-list consists of booleans and has a length equal
+to the number of sky patches times 2 (indicating sky patches and ground patches).
+True indicates that a certain patch is seen and False indicates that the
+match is blocked.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2025, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

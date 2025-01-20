@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ladybug_radiance.skymatrix &#8212; ladybug radiance  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css?v=0bf093e7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=45cd8fae" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          ladybug radiance</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">CLI Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cli/index.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">ladybug_radiance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ladybug_radiance.html">ladybug_radiance package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ladybug_radiance.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ladybug_radiance.study.html">ladybug_radiance.study package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.study.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html">ladybug_radiance.study.directsun module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy"><code class="docutils literal notranslate"><span class="pre">DirectSunStudy</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.compute"><code class="docutils literal notranslate"><span class="pre">compute()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.by_vertex"><code class="docutils literal notranslate"><span class="pre">by_vertex</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.context_geometry"><code class="docutils literal notranslate"><span class="pre">context_geometry</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.direct_sun_hours"><code class="docutils literal notranslate"><span class="pre">direct_sun_hours</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.offset_distance"><code class="docutils literal notranslate"><span class="pre">offset_distance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.sim_folder"><code class="docutils literal notranslate"><span class="pre">sim_folder</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.study_mesh"><code class="docutils literal notranslate"><span class="pre">study_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.study_normals"><code class="docutils literal notranslate"><span class="pre">study_normals</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.study_points"><code class="docutils literal notranslate"><span class="pre">study_points</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.timestep"><code class="docutils literal notranslate"><span class="pre">timestep</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.use_radiance_mesh"><code class="docutils literal notranslate"><span class="pre">use_radiance_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.directsun.html#ladybug_radiance.study.directsun.DirectSunStudy.vectors"><code class="docutils literal notranslate"><span class="pre">vectors</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html">ladybug_radiance.study.radiation module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy"><code class="docutils literal notranslate"><span class="pre">RadiationStudy</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.compute"><code class="docutils literal notranslate"><span class="pre">compute()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.total_radiation"><code class="docutils literal notranslate"><span class="pre">total_radiation()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.by_vertex"><code class="docutils literal notranslate"><span class="pre">by_vertex</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.context_geometry"><code class="docutils literal notranslate"><span class="pre">context_geometry</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.irradiance_values"><code class="docutils literal notranslate"><span class="pre">irradiance_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.offset_distance"><code class="docutils literal notranslate"><span class="pre">offset_distance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.radiation_values"><code class="docutils literal notranslate"><span class="pre">radiation_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.sim_folder"><code class="docutils literal notranslate"><span class="pre">sim_folder</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.sky_matrix"><code class="docutils literal notranslate"><span class="pre">sky_matrix</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.study_mesh"><code class="docutils literal notranslate"><span class="pre">study_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.study_normals"><code class="docutils literal notranslate"><span class="pre">study_normals</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.study_points"><code class="docutils literal notranslate"><span class="pre">study_points</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.study.radiation.html#ladybug_radiance.study.radiation.RadiationStudy.use_radiance_mesh"><code class="docutils literal notranslate"><span class="pre">use_radiance_mesh</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.study.html#module-ladybug_radiance.study">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../ladybug_radiance.visualize.html">ladybug_radiance.visualize package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.visualize.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html">ladybug_radiance.visualize.raddome module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome"><code class="docutils literal notranslate"><span class="pre">RadiationDome</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.dome_vectors"><code class="docutils literal notranslate"><span class="pre">dome_vectors()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.PROJECTIONS"><code class="docutils literal notranslate"><span class="pre">PROJECTIONS</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.altitude_count"><code class="docutils literal notranslate"><span class="pre">altitude_count</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.azimuth_count"><code class="docutils literal notranslate"><span class="pre">azimuth_count</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.center_point"><code class="docutils literal notranslate"><span class="pre">center_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.direction_vectors"><code class="docutils literal notranslate"><span class="pre">direction_vectors</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.dome_mesh"><code class="docutils literal notranslate"><span class="pre">dome_mesh</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.max_direction"><code class="docutils literal notranslate"><span class="pre">max_direction</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.max_info"><code class="docutils literal notranslate"><span class="pre">max_info</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.max_point"><code class="docutils literal notranslate"><span class="pre">max_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.plot_irradiance"><code class="docutils literal notranslate"><span class="pre">plot_irradiance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.projection"><code class="docutils literal notranslate"><span class="pre">projection</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.radius"><code class="docutils literal notranslate"><span class="pre">radius</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.raddome.html#ladybug_radiance.visualize.raddome.RadiationDome.total_values"><code class="docutils literal notranslate"><span class="pre">total_values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html">ladybug_radiance.visualize.radrose module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose"><code class="docutils literal notranslate"><span class="pre">RadiationRose</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.radial_vectors"><code class="docutils literal notranslate"><span class="pre">radial_vectors()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.arrow_scale"><code class="docutils literal notranslate"><span class="pre">arrow_scale</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.center_point"><code class="docutils literal notranslate"><span class="pre">center_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.direction_count"><code class="docutils literal notranslate"><span class="pre">direction_count</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.direction_vectors"><code class="docutils literal notranslate"><span class="pre">direction_vectors</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.plot_irradiance"><code class="docutils literal notranslate"><span class="pre">plot_irradiance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.radius"><code class="docutils literal notranslate"><span class="pre">radius</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.tilt_angle"><code class="docutils literal notranslate"><span class="pre">tilt_angle</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.radrose.html#ladybug_radiance.visualize.radrose.RadiationRose.total_values"><code class="docutils literal notranslate"><span class="pre">total_values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html">ladybug_radiance.visualize.skydome module</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome"><code class="docutils literal notranslate"><span class="pre">SkyDome</span></code></a><ul>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.draw"><code class="docutils literal notranslate"><span class="pre">draw()</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.PROJECTIONS"><code class="docutils literal notranslate"><span class="pre">PROJECTIONS</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.center_point"><code class="docutils literal notranslate"><span class="pre">center_point</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.is_benefit"><code class="docutils literal notranslate"><span class="pre">is_benefit</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.patch_vectors"><code class="docutils literal notranslate"><span class="pre">patch_vectors</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.plot_irradiance"><code class="docutils literal notranslate"><span class="pre">plot_irradiance</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.projection"><code class="docutils literal notranslate"><span class="pre">projection</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.radius"><code class="docutils literal notranslate"><span class="pre">radius</span></code></a></li>
+<li class="toctree-l8"><a class="reference internal" href="../../ladybug_radiance.visualize.skydome.html#ladybug_radiance.visualize.skydome.SkyDome.total_values"><code class="docutils literal notranslate"><span class="pre">total_values</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.visualize.html#module-ladybug_radiance.visualize">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ladybug_radiance.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ladybug_radiance.config.html">ladybug_radiance.config module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders"><code class="docutils literal notranslate"><span class="pre">Folders</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.config_file"><code class="docutils literal notranslate"><span class="pre">config_file</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.env"><code class="docutils literal notranslate"><span class="pre">env</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.radbin_path"><code class="docutils literal notranslate"><span class="pre">radbin_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_path"><code class="docutils literal notranslate"><span class="pre">radiance_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_version"><code class="docutils literal notranslate"><span class="pre">radiance_version</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_version_date"><code class="docutils literal notranslate"><span class="pre">radiance_version_date</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.radiance_version_str"><code class="docutils literal notranslate"><span class="pre">radiance_version_str</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.config.html#ladybug_radiance.config.Folders.radlib_path"><code class="docutils literal notranslate"><span class="pre">radlib_path</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../ladybug_radiance.intersection.html">ladybug_radiance.intersection module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.intersection.html#ladybug_radiance.intersection.binary_mtx_dimension"><code class="docutils literal notranslate"><span class="pre">binary_mtx_dimension()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.intersection.html#ladybug_radiance.intersection.binary_to_array"><code class="docutils literal notranslate"><span class="pre">binary_to_array()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.intersection.html#ladybug_radiance.intersection.intersection_matrix"><code class="docutils literal notranslate"><span class="pre">intersection_matrix()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.intersection.html#ladybug_radiance.intersection.sky_intersection_matrix"><code class="docutils literal notranslate"><span class="pre">sky_intersection_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html">ladybug_radiance.skymatrix module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix"><code class="docutils literal notranslate"><span class="pre">SkyMatrix</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.compute_sky"><code class="docutils literal notranslate"><span class="pre">compute_sky()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_ashrae_clear_sky"><code class="docutils literal notranslate"><span class="pre">from_ashrae_clear_sky()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_components"><code class="docutils literal notranslate"><span class="pre">from_components()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_components_benefit"><code class="docutils literal notranslate"><span class="pre">from_components_benefit()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_epw"><code class="docutils literal notranslate"><span class="pre">from_epw()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_epw_benefit"><code class="docutils literal notranslate"><span class="pre">from_epw_benefit()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_stat"><code class="docutils literal notranslate"><span class="pre">from_stat()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.LINE_BREAK"><code class="docutils literal notranslate"><span class="pre">LINE_BREAK</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.PATCHES_PER_ROW"><code class="docutils literal notranslate"><span class="pre">PATCHES_PER_ROW</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.PATCH_ROW_COEFF"><code class="docutils literal notranslate"><span class="pre">PATCH_ROW_COEFF</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.SEPARATOR"><code class="docutils literal notranslate"><span class="pre">SEPARATOR</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.benefit_matrix"><code class="docutils literal notranslate"><span class="pre">benefit_matrix</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.data"><code class="docutils literal notranslate"><span class="pre">data</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.diffuse_values"><code class="docutils literal notranslate"><span class="pre">diffuse_values</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.direct_values"><code class="docutils literal notranslate"><span class="pre">direct_values</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.folder"><code class="docutils literal notranslate"><span class="pre">folder</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.ground_reflectance"><code class="docutils literal notranslate"><span class="pre">ground_reflectance</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.high_density"><code class="docutils literal notranslate"><span class="pre">high_density</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.metadata"><code class="docutils literal notranslate"><span class="pre">metadata</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.north"><code class="docutils literal notranslate"><span class="pre">north</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.wea"><code class="docutils literal notranslate"><span class="pre">wea</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.wea_duration"><code class="docutils literal notranslate"><span class="pre">wea_duration</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ladybug_radiance.html#module-ladybug_radiance">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">CLI Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">ladybug_radiance</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">CLI Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">ladybug_radiance</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for ladybug_radiance.skymatrix</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Get a matrix containing radiation values from each patch of a sky dome.</span>
+
+<span class="sd">Creating this matrix is a necessary pre-step before doing incident radiation</span>
+<span class="sd">analysis or generating a visualizations like a radiation rose.</span>
+
+<span class="sd">This class uses Radiance&#39;s gendaymtx function to calculate the radiation</span>
+<span class="sd">for each patch of the sky. Gendaymtx is written by Ian Ashdown and Greg Ward.</span>
+<span class="sd">More information can be found in Radiance manual at:</span>
+<span class="sd">http://www.radiance-online.org/learning/documentation/manual-pages/pdfs/gendaymtx.pdf</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">division</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ladybug.epw</span><span class="w"> </span><span class="kn">import</span> <span class="n">EPW</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ladybug.wea</span><span class="w"> </span><span class="kn">import</span> <span class="n">Wea</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ladybug.viewsphere</span><span class="w"> </span><span class="kn">import</span> <span class="n">view_sphere</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ladybug.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">folders</span> <span class="k">as</span> <span class="n">lb_folders</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">folders</span>
+
+<span class="k">if</span> <span class="n">folders</span><span class="o">.</span><span class="n">radbin_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">GENDAYMTX_EXE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folders</span><span class="o">.</span><span class="n">radbin_path</span><span class="p">,</span> <span class="s1">&#39;gendaymtx.exe&#39;</span><span class="p">)</span> <span class="k">if</span> \
+        <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folders</span><span class="o">.</span><span class="n">radbin_path</span><span class="p">,</span> <span class="s1">&#39;gendaymtx&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">GENDAYMTX_EXE</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="SkyMatrix">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SkyMatrix</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A matrix containing radiation values from each patch of a sky dome.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        wea: A Ladybug Wea object.</span>
+<span class="sd">        north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">            between the North and the positive Y-axis in degrees. 90 is West and 270</span>
+<span class="sd">            is East. (Default: 0).</span>
+<span class="sd">        high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">            sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">            the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">            Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">            more accurate, it will result in considerably longer calculation</span>
+<span class="sd">            time for incident radiation studies. (Default: False).</span>
+<span class="sd">        ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">            reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+
+<span class="sd">    Properties:</span>
+<span class="sd">        * wea</span>
+<span class="sd">        * north</span>
+<span class="sd">        * high_density</span>
+<span class="sd">        * ground_reflectance</span>
+<span class="sd">        * benefit_matrix</span>
+<span class="sd">        * folder</span>
+<span class="sd">        * wea_duration</span>
+<span class="sd">        * direct_values</span>
+<span class="sd">        * diffuse_values</span>
+<span class="sd">        * metadata</span>
+<span class="sd">        * data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># constants for converting RGB values output by gendaymtx to broadband radiation</span>
+    <span class="n">PATCHES_PER_ROW</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="n">view_sphere</span><span class="o">.</span><span class="n">TREGENZA_PATCHES_PER_ROW</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="n">view_sphere</span><span class="o">.</span><span class="n">REINHART_PATCHES_PER_ROW</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+    <span class="p">}</span>
+    <span class="n">PATCH_ROW_COEFF</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="n">view_sphere</span><span class="o">.</span><span class="n">TREGENZA_COEFFICIENTS</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="n">view_sphere</span><span class="o">.</span><span class="n">REINHART_COEFFICIENTS</span>
+    <span class="p">}</span>
+    <span class="n">LINE_BREAK</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">SEPARATOR</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39; &#39;</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39; &#39;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;_wea&#39;</span><span class="p">,</span> <span class="s1">&#39;_north&#39;</span><span class="p">,</span> <span class="s1">&#39;_high_density&#39;</span><span class="p">,</span> <span class="s1">&#39;_ground_reflectance&#39;</span><span class="p">,</span> <span class="s1">&#39;_folder&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_direct_values&#39;</span><span class="p">,</span> <span class="s1">&#39;_diffuse_values&#39;</span><span class="p">,</span> <span class="s1">&#39;_benefit_matrix&#39;</span><span class="p">,</span> <span class="s1">&#39;_metadata&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wea</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize SkyMatrix.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wea</span> <span class="o">=</span> <span class="n">wea</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">north</span> <span class="o">=</span> <span class="n">north</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">high_density</span> <span class="o">=</span> <span class="n">high_density</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ground_reflectance</span> <span class="o">=</span> <span class="n">ground_reflectance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">benefit_matrix</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">folder</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="SkyMatrix.from_components">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_components">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_components</span><span class="p">(</span>
+            <span class="bp">cls</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">direct_normal_irradiance</span><span class="p">,</span> <span class="n">diffuse_horizontal_irradiance</span><span class="p">,</span>
+            <span class="n">hoys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a SkyMatrix from individual solar irradiance components.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            location: Ladybug location object.</span>
+<span class="sd">            direct_normal_irradiance: A HourlyContinuousCollection or a</span>
+<span class="sd">                HourlyDiscontinuousCollection for direct normal irradiance. The</span>
+<span class="sd">                collection must be aligned with the diffuse_horizontal_irradiance.</span>
+<span class="sd">            diffuse_horizontal_irradiance: A HourlyContinuousCollection or a</span>
+<span class="sd">                HourlyDiscontinuousCollection for diffuse horizontal irradiance, The</span>
+<span class="sd">                collection must be aligned with the direct_normal_irradiance.</span>
+<span class="sd">            hoys: A list of numbers between 0 and 8760 that represent the hours of the</span>
+<span class="sd">                year for which to generate the sky matrix. If None, the matrix will</span>
+<span class="sd">                be for the entire year. (Default: None).</span>
+<span class="sd">            north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">                between the North and the positive Y-axis in degrees. 90 is West</span>
+<span class="sd">                and 270 is East. (Default: 0).</span>
+<span class="sd">            high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">                sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">                the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">                Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">                more accurate, it will result in considerably longer calculation</span>
+<span class="sd">                time for incident radiation studies. (Default: False).</span>
+<span class="sd">            ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">                reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># filter the radiation by hoys if they are input</span>
+        <span class="k">if</span> <span class="n">hoys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dni</span> <span class="o">=</span> <span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+            <span class="n">dhi</span> <span class="o">=</span> <span class="n">diffuse_horizontal_irradiance</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dni</span><span class="p">,</span> <span class="n">dhi</span> <span class="o">=</span> <span class="n">direct_normal_irradiance</span><span class="p">,</span> <span class="n">diffuse_horizontal_irradiance</span>
+        <span class="c1"># create the wea and return the SkyMatrix</span>
+        <span class="n">wea</span> <span class="o">=</span> <span class="n">Wea</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">dni</span><span class="p">,</span> <span class="n">dhi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">wea</span><span class="p">,</span> <span class="n">north</span><span class="p">,</span> <span class="n">high_density</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SkyMatrix.from_components_benefit">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_components_benefit">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_components_benefit</span><span class="p">(</span>
+            <span class="bp">cls</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">direct_normal_irradiance</span><span class="p">,</span> <span class="n">diffuse_horizontal_irradiance</span><span class="p">,</span>
+            <span class="n">temperature</span><span class="p">,</span> <span class="n">balance_temperature</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">balance_offset</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">hoys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a SkyMatrix representing benefit/harm based on temperature data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            location: Ladybug location object.</span>
+<span class="sd">            direct_normal_irradiance: A HourlyContinuousCollection or a</span>
+<span class="sd">                HourlyDiscontinuousCollection for direct normal irradiance. The</span>
+<span class="sd">                collection must be aligned with the diffuse_horizontal_irradiance.</span>
+<span class="sd">            diffuse_horizontal_irradiance: A HourlyContinuousCollection or a</span>
+<span class="sd">                HourlyDiscontinuousCollection for diffuse horizontal irradiance. The</span>
+<span class="sd">                collection must be aligned with the direct_normal_irradiance.</span>
+<span class="sd">            temperature: A HourlyContinuousCollection or a HourlyDiscontinuousCollection</span>
+<span class="sd">                for temperature, which will be used to establish whether radiation</span>
+<span class="sd">                is desired or not for each time step. The collection must be aligned</span>
+<span class="sd">                with the irradiance inputs.</span>
+<span class="sd">            balance_temperature: The temperature in Celsius between which radiation</span>
+<span class="sd">                switches from being a benefit to a harm. Typical residential buildings</span>
+<span class="sd">                have balance temperatures as high as 18C and commercial buildings tend</span>
+<span class="sd">                to have lower values around 12C. (Default 15C).</span>
+<span class="sd">            balance_offset: The temperature offset from the balance temperature</span>
+<span class="sd">                in Celsius where radiation is neither harmful nor helpful. (Default: 2).</span>
+<span class="sd">            hoys: A list of numbers between 0 and 8760 that represent the hours of the</span>
+<span class="sd">                year for which to generate the sky matrix. If None, the matrix will</span>
+<span class="sd">                be for the entire year. (Default: None).</span>
+<span class="sd">            north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">                between the North and the positive Y-axis in degrees. 90 is West</span>
+<span class="sd">                and 270 is East. (Default: 0).</span>
+<span class="sd">            high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">                sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">                the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">                Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">                more accurate, it will result in considerably longer calculation</span>
+<span class="sd">                time for incident radiation studies. (Default: False).</span>
+<span class="sd">            ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">                reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># filter the radiation by hoys if they are input</span>
+        <span class="k">if</span> <span class="n">hoys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dni</span> <span class="o">=</span> <span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+            <span class="n">dhi</span> <span class="o">=</span> <span class="n">diffuse_horizontal_irradiance</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dni</span><span class="p">,</span> <span class="n">dhi</span> <span class="o">=</span> <span class="n">direct_normal_irradiance</span><span class="p">,</span> <span class="n">diffuse_horizontal_irradiance</span>
+        <span class="c1"># create the benefit matrix</span>
+        <span class="n">t_low</span> <span class="o">=</span> <span class="n">balance_temperature</span> <span class="o">-</span> <span class="n">balance_offset</span>
+        <span class="n">t_high</span> <span class="o">=</span> <span class="n">balance_temperature</span> <span class="o">+</span> <span class="n">balance_offset</span>
+        <span class="n">benefit_mtx</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temperature</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">t_low</span><span class="p">:</span>  <span class="c1"># low temperatures mean radiation is beneficial</span>
+                <span class="n">benefit_mtx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">t_high</span><span class="p">:</span>  <span class="c1"># high temperatures mean radiation is harmful</span>
+                <span class="n">benefit_mtx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># the temperature is neutral, meaning radiation has no effect</span>
+                <span class="n">benefit_mtx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="c1"># create the wea and return the SkyMatrix</span>
+        <span class="n">wea</span> <span class="o">=</span> <span class="n">Wea</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">dni</span><span class="p">,</span> <span class="n">dhi</span><span class="p">)</span>
+        <span class="n">sky_mtx</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">wea</span><span class="p">,</span> <span class="n">north</span><span class="p">,</span> <span class="n">high_density</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="p">)</span>
+        <span class="n">sky_mtx</span><span class="o">.</span><span class="n">benefit_matrix</span> <span class="o">=</span> <span class="n">benefit_mtx</span>
+        <span class="k">return</span> <span class="n">sky_mtx</span></div>
+
+
+<div class="viewcode-block" id="SkyMatrix.from_epw">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_epw">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_epw</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">epw_file</span><span class="p">,</span> <span class="n">hoys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a SkyMatrix using the solar irradiance values in an epw file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            epw_file: Full path to epw weather file.</span>
+<span class="sd">            hoys: A list of numbers between 0 and 8760 that represent the hours of the</span>
+<span class="sd">                year for which to generate the sky matrix. If None, the matrix will</span>
+<span class="sd">                be for the entire year. (Default: None).</span>
+<span class="sd">            north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">                between the North and the positive Y-axis in degrees. 90 is West</span>
+<span class="sd">                and 270 is East. (Default: 0).</span>
+<span class="sd">            high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">                sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">                the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">                Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">                more accurate, it will result in considerably longer calculation</span>
+<span class="sd">                time for incident radiation studies. (Default: False).</span>
+<span class="sd">            ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">                reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">epw</span> <span class="o">=</span> <span class="n">EPW</span><span class="p">(</span><span class="n">epw_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_components</span><span class="p">(</span>
+            <span class="n">epw</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="n">epw</span><span class="o">.</span><span class="n">direct_normal_radiation</span><span class="p">,</span> <span class="n">epw</span><span class="o">.</span><span class="n">diffuse_horizontal_radiation</span><span class="p">,</span>
+            <span class="n">hoys</span><span class="p">,</span> <span class="n">north</span><span class="p">,</span> <span class="n">high_density</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SkyMatrix.from_epw_benefit">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_epw_benefit">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_epw_benefit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">epw_file</span><span class="p">,</span> <span class="n">balance_temperature</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">balance_offset</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                         <span class="n">hoys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a SkyMatrix using the solar irradiance values in an epw file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            epw_file: Full path to epw weather file.</span>
+<span class="sd">            balance_temperature: The temperature in Celsius between which radiation</span>
+<span class="sd">                switches from being a benefit to a harm. Typical residential buildings</span>
+<span class="sd">                have balance temperatures as high as 18C and commercial buildings tend</span>
+<span class="sd">                to have lower values around 12C. (Default 15C).</span>
+<span class="sd">            balance_offset: The temperature offset from the balance temperature</span>
+<span class="sd">                in Celsius where radiation is neither harmful nor helpful. (Default: 2).</span>
+<span class="sd">            hoys: A list of numbers between 0 and 8760 that represent the hours of the</span>
+<span class="sd">                year for which to generate the sky matrix. If None, the matrix will</span>
+<span class="sd">                be for the entire year. (Default: None).</span>
+<span class="sd">            north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">                between the North and the positive Y-axis in degrees. 90 is West</span>
+<span class="sd">                and 270 is East. (Default: 0).</span>
+<span class="sd">            high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">                sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">                the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">                Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">                more accurate, it will result in considerably longer calculation</span>
+<span class="sd">                time for incident radiation studies. (Default: False).</span>
+<span class="sd">            ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">                reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">epw</span> <span class="o">=</span> <span class="n">EPW</span><span class="p">(</span><span class="n">epw_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_components_benefit</span><span class="p">(</span>
+            <span class="n">epw</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="n">epw</span><span class="o">.</span><span class="n">direct_normal_radiation</span><span class="p">,</span> <span class="n">epw</span><span class="o">.</span><span class="n">diffuse_horizontal_radiation</span><span class="p">,</span>
+            <span class="n">epw</span><span class="o">.</span><span class="n">dry_bulb_temperature</span><span class="p">,</span> <span class="n">balance_temperature</span><span class="p">,</span> <span class="n">balance_offset</span><span class="p">,</span>
+            <span class="n">hoys</span><span class="p">,</span> <span class="n">north</span><span class="p">,</span> <span class="n">high_density</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SkyMatrix.from_stat">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_stat">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_stat</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stat_file</span><span class="p">,</span> <span class="n">hoys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a ASHRAE Revised Clear SkyMatrix using the data in .stat file.</span>
+
+<span class="sd">        The .stat file must have monthly sky optical depths within it in order to</span>
+<span class="sd">        create a Wea this way.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            stat_file: Full path to a .stat file.</span>
+<span class="sd">            hoys: A list of numbers between 0 and 8760 that represent the hours of the</span>
+<span class="sd">                year for which to generate the sky matrix. If None, the matrix will</span>
+<span class="sd">                be for the entire year. (Default: None).</span>
+<span class="sd">            north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">                between the North and the positive Y-axis in degrees. 90 is West</span>
+<span class="sd">                and 270 is East. (Default: 0).</span>
+<span class="sd">            high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">                sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">                the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">                Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">                more accurate, it will result in considerably longer calculation</span>
+<span class="sd">                time for incident radiation studies. (Default: False).</span>
+<span class="sd">            ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">                reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wea</span> <span class="o">=</span> <span class="n">Wea</span><span class="o">.</span><span class="n">from_stat_file</span><span class="p">(</span><span class="n">stat_file</span><span class="p">)</span>
+        <span class="c1"># filter the radiation by hoys if they are input</span>
+        <span class="k">if</span> <span class="n">hoys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wea</span> <span class="o">=</span> <span class="n">wea</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">wea</span><span class="p">,</span> <span class="n">north</span><span class="p">,</span> <span class="n">high_density</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SkyMatrix.from_ashrae_clear_sky">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.from_ashrae_clear_sky">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_ashrae_clear_sky</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">sky_clearness</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hoys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">high_density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an original ASHRAE Clear SkyMatrix using a location and sky clearness.</span>
+
+<span class="sd">        The original ASHRAE Clear Sky is intended to determine peak solar load</span>
+<span class="sd">        and sizing parameters for HVAC systems.  It is not the sky model</span>
+<span class="sd">        currently recommended by ASHRAE since it usually overestimates the</span>
+<span class="sd">        amount of solar irradiance in comparison to the newer ASHRAE Revised</span>
+<span class="sd">        Clear Sky (&quot;Tau Model&quot;). However, the original model here is still</span>
+<span class="sd">        useful for cases where monthly optical depth values are not known. For</span>
+<span class="sd">        more information on the ASHRAE Clear Sky model, see the EnergyPlus</span>
+<span class="sd">        Engineering Reference:</span>
+<span class="sd">        https://bigladdersoftware.com/epx/docs/8-9/engineering-reference/climate-calculations.html</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            location: Ladybug location object.</span>
+<span class="sd">            sky_clearness: A factor that will be multiplied by the output of</span>
+<span class="sd">                the model. This is to help account for locations where clear,</span>
+<span class="sd">                dry skies predominate (e.g., at high elevations) or,</span>
+<span class="sd">                conversely, where hazy and humid conditions are frequent. See</span>
+<span class="sd">                Threlkeld and Jordan (1958) for recommended values. Typical</span>
+<span class="sd">                values range from 0.95 to 1.05 and are usually never more</span>
+<span class="sd">                than 1.2. Default is set to 1.0.</span>
+<span class="sd">            hoys: A list of numbers between 0 and 8760 that represent the hours of the</span>
+<span class="sd">                year for which to generate the sky matrix. If None, the matrix will</span>
+<span class="sd">                be for the entire year. (Default: None).</span>
+<span class="sd">            north: A number between -360 and 360 for the counterclockwise difference</span>
+<span class="sd">                between the North and the positive Y-axis in degrees. 90 is West</span>
+<span class="sd">                and 270 is East. (Default: 0).</span>
+<span class="sd">            high_density: A Boolean to indicate whether the higher-density Reinhart</span>
+<span class="sd">                sky matrix should be generated (True), which has roughly 4 times</span>
+<span class="sd">                the sky patches as the (default) original Tregenza sky (False).</span>
+<span class="sd">                Note that, while the Reinhart sky has a higher resolution and is</span>
+<span class="sd">                more accurate, it will result in considerably longer calculation</span>
+<span class="sd">                time for incident radiation studies. (Default: False).</span>
+<span class="sd">            ground_reflectance: A number between 0 and 1 to note the average ground</span>
+<span class="sd">                reflectance that is associated with the sky matrix. (Default: 0.2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">wea</span> <span class="o">=</span> <span class="n">Wea</span><span class="o">.</span><span class="n">from_ashrae_clear_sky</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">sky_clearness</span><span class="p">)</span>
+        <span class="c1"># filter the radiation by hoys if they are input</span>
+        <span class="k">if</span> <span class="n">hoys</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">wea</span> <span class="o">=</span> <span class="n">wea</span><span class="o">.</span><span class="n">filter_by_hoys</span><span class="p">(</span><span class="n">hoys</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">wea</span><span class="p">,</span> <span class="n">north</span><span class="p">,</span> <span class="n">high_density</span><span class="p">,</span> <span class="n">ground_reflectance</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set a Wea object for the sky matrix.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wea</span>
+
+    <span class="nd">@wea</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wea</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Wea</span><span class="p">),</span> \
+            <span class="s1">&#39;wea must be from type Wea not </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wea</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">north</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set a number north direction.</span>
+
+<span class="sd">        A number between -360 and 360 for the counterclockwise difference between</span>
+<span class="sd">        the North and the positive Y-axis in degrees. 90 is West and 270 is East.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_north</span>
+
+    <span class="nd">@north</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">north</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)),</span> <span class="s1">&#39;Expected number for &#39;</span> \
+            <span class="s1">&#39;SkyMatrix north. Got </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="o">-</span><span class="mi">360</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">360</span><span class="p">,</span> <span class="s1">&#39;SkyMatrix north must be between 0 and 360. &#39;</span> \
+            <span class="s1">&#39;Got </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_north</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">high_density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set a boolean for whether the sky is a higher-density Reinhart matrix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_high_density</span>
+
+    <span class="nd">@high_density</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">high_density</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_high_density</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ground_reflectance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set a number between 0 and 1 to note the average ground reflectance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ground_reflectance</span>
+
+    <span class="nd">@ground_reflectance</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ground_reflectance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)),</span> <span class="s1">&#39;Expected number for &#39;</span> \
+            <span class="s1">&#39;SkyMatrix ground_reflectance. Got </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;SkyMatrix ground_reflectance must be between 0 and 1.&#39;</span> \
+            <span class="s1">&#39; Got </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ground_reflectance</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">benefit_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set list of True/False values for whether Wea datetimes are beneficial.</span>
+
+<span class="sd">        This list must have a length that matches the Wea so that each datetime</span>
+<span class="sd">        can be matched with a benefit/harm value. True (beneficial) values will</span>
+<span class="sd">        contribute positively to the value of each sky patch while False (harmful)</span>
+<span class="sd">        values will contribute negatively. A value of None in the list indicates</span>
+<span class="sd">        that the hour has neither a benefit or a harmful effect.</span>
+
+<span class="sd">        This is None by default, indicating that all radiation values contribute</span>
+<span class="sd">        positively to each sky patch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_benefit_matrix</span>
+
+    <span class="nd">@benefit_matrix</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">benefit_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)),</span> \
+                <span class="s1">&#39;SkyMatrix.benefit_matrix must be a list. Not </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="p">),</span> <span class="s1">&#39;Length of SkyMatrix.benefit_matrix &#39;</span> \
+                <span class="s1">&#39;[</span><span class="si">{}</span><span class="s1">] must equal the length of the sky matrix Wea [</span><span class="si">{}</span><span class="s1">].&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_benefit_matrix</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">folder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get or set the folder in which the Radiance commands are executed.</span>
+
+<span class="sd">        If None, it will be written to Ladybug&#39;s default EPW folder.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_folder</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lb_folders</span><span class="o">.</span><span class="n">default_epw_folder</span><span class="p">,</span> <span class="s1">&#39;sky_matrices&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_folder</span>
+
+    <span class="nd">@folder</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">folder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="s1">&#39;Path for &#39;</span> \
+                <span class="s1">&#39;SkyMatrix folder does not exist: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_folder</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wea_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the duration of the Wea in hours.</span>
+
+<span class="sd">        This is useful for converting the radiation values of the sky patches (kWh/m2)</span>
+<span class="sd">        into irradiance (W/m2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">timestep</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">direct_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the direct radiation values for each of the sky patches.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diffuse_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the diffuse radiation values for each of the sky patches.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a list of metadata associated with the sky matrix.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a matrix of all data associated with the sky matrix.</span>
+
+<span class="sd">        The first list contains metadata, followed by direct values and then</span>
+<span class="sd">        diffuse values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SkyMatrix.compute_sky">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.compute_sky">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_sky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the values of the sky matrix.&quot;&quot;&quot;</span>
+        <span class="c1"># extract metadata needed for all calculations</span>
+        <span class="n">wea_duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">timestep</span>
+        <span class="n">metd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">metadata</span>
+        <span class="n">wea_basename</span> <span class="o">=</span> <span class="n">metd</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;city&#39;</span> <span class="ow">in</span> <span class="n">metd</span> <span class="k">else</span> <span class="s1">&#39;unnamed&#39;</span>
+
+        <span class="c1"># if there&#39;s a benefit matrix, split the Wea into two files</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">benefit_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dir_vals1</span><span class="p">,</span> <span class="n">dif_vals1</span><span class="p">,</span> <span class="n">dir_vals2</span><span class="p">,</span> <span class="n">dif_vals2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+            <span class="n">zip_obj</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">direct_normal_irradiance</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">diffuse_horizontal_irradiance</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">benefit_matrix</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">dir_v</span><span class="p">,</span> <span class="n">dif_v</span><span class="p">,</span> <span class="n">ben</span> <span class="ow">in</span> <span class="n">zip_obj</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ben</span><span class="p">:</span>  <span class="c1"># time contributes positively</span>
+                    <span class="n">dir_vals1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dir_v</span><span class="p">)</span>
+                    <span class="n">dif_vals1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dif_v</span><span class="p">)</span>
+                    <span class="n">dir_vals2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">dif_vals2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">ben</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># time is neither positive nor negative</span>
+                    <span class="n">dir_vals1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">dif_vals1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">dir_vals2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">dif_vals2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># time contributes negatively</span>
+                    <span class="n">dir_vals2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dir_v</span><span class="p">)</span>
+                    <span class="n">dif_vals2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dif_v</span><span class="p">)</span>
+                    <span class="n">dir_vals1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">dif_vals1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="c1"># create the first Wea object</span>
+            <span class="n">dir_data1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+            <span class="n">dif_data1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">diffuse_horizontal_irradiance</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+            <span class="n">dir_data1</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">dir_vals1</span>
+            <span class="n">dif_data1</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">dif_vals1</span>
+            <span class="n">wea_obj1</span> <span class="o">=</span> <span class="n">Wea</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="n">dir_data1</span><span class="p">,</span> <span class="n">dif_data1</span><span class="p">)</span>
+            <span class="c1"># create the second Wea object</span>
+            <span class="n">dir_data2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+            <span class="n">dif_data2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">diffuse_horizontal_irradiance</span><span class="o">.</span><span class="n">duplicate</span><span class="p">()</span>
+            <span class="n">dir_data2</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">dir_vals2</span>
+            <span class="n">dif_data2</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">dif_vals2</span>
+            <span class="n">wea_obj2</span> <span class="o">=</span> <span class="n">Wea</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="n">dir_data2</span><span class="p">,</span> <span class="n">dif_data2</span><span class="p">)</span>
+            <span class="c1"># write the Wea files</span>
+            <span class="n">wea_path1</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_benefit&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wea_basename</span><span class="p">))</span>
+            <span class="n">wea_path2</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_harm&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wea_basename</span><span class="p">))</span>
+            <span class="n">wea_file</span> <span class="o">=</span> <span class="n">wea_obj1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">wea_path1</span><span class="p">)</span>
+            <span class="n">wea_file2</span> <span class="o">=</span> <span class="n">wea_obj2</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">wea_path2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># otherwise, write the Wea to the folder</span>
+            <span class="n">wea_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folder</span><span class="p">,</span> <span class="n">wea_basename</span><span class="p">)</span>
+            <span class="n">wea_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">wea_path</span><span class="p">)</span>
+            <span class="n">wea_file2</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># execute the Radiance gendaymtx command</span>
+        <span class="n">dir_vals</span><span class="p">,</span> <span class="n">dif_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_gendaymtx</span><span class="p">(</span><span class="n">wea_file</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">)</span>
+        <span class="c1"># if there&#39;s a second wea, then use it to compute radiation harm</span>
+        <span class="k">if</span> <span class="n">wea_file2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dir_vals2</span><span class="p">,</span> <span class="n">dif_vals2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_gendaymtx</span><span class="p">(</span><span class="n">wea_file2</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">db</span> <span class="o">-</span> <span class="n">dh</span> <span class="k">for</span> <span class="n">db</span><span class="p">,</span> <span class="n">dh</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dir_vals</span><span class="p">,</span> <span class="n">dir_vals2</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">db</span> <span class="o">-</span> <span class="n">dh</span> <span class="k">for</span> <span class="n">db</span><span class="p">,</span> <span class="n">dh</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dif_vals</span><span class="p">,</span> <span class="n">dif_vals2</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="o">=</span> <span class="n">dir_vals</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span> <span class="o">=</span> <span class="n">dif_vals</span>
+
+        <span class="c1"># collect sky metadata like the north, which will be used by other operations</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">north</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground_reflectance</span><span class="p">]</span>
+        <span class="n">dts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">datetimes</span>
+        <span class="n">metadata</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">dts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">direct_normal_irradiance</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_run_gendaymtx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wea_file</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run a Wea file through gendaymtx and get direct and diffuse radiation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            wea_file: Path to a Wea file to be run through gendaymtx.</span>
+<span class="sd">            wea_duration: Number for the duration of the Wea in hours. This is used</span>
+<span class="sd">                to convert between the average value output by the command and the</span>
+<span class="sd">                cumulative value that is needed for all ladybug analyses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="n">GENDAYMTX_EXE</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;No Radiance installation was found.&#39;</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">high_density</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="n">use_shell</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="c1"># command for direct patches</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="n">GENDAYMTX_EXE</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">density</span><span class="p">),</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;-O1&#39;</span><span class="p">,</span> <span class="s1">&#39;-A&#39;</span><span class="p">,</span> <span class="n">wea_file</span><span class="p">]</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmds</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="n">use_shell</span><span class="p">)</span>
+        <span class="n">stdout</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+        <span class="n">dir_data_str</span> <span class="o">=</span> <span class="n">stdout</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># command for diffuse patches</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="n">GENDAYMTX_EXE</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">density</span><span class="p">),</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;-O1&#39;</span><span class="p">,</span> <span class="s1">&#39;-A&#39;</span><span class="p">,</span> <span class="n">wea_file</span><span class="p">]</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmds</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="n">use_shell</span><span class="p">)</span>
+        <span class="n">stdout</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+        <span class="n">diff_data_str</span> <span class="o">=</span> <span class="n">stdout</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># parse the data into a single matrix</span>
+        <span class="n">dir_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_mtx_data</span><span class="p">(</span><span class="n">dir_data_str</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">,</span> <span class="n">density</span><span class="p">)</span>
+        <span class="n">diff_vals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_mtx_data</span><span class="p">(</span><span class="n">diff_data_str</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">,</span> <span class="n">density</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dir_vals</span><span class="p">,</span> <span class="n">diff_vals</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_mtx_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_str</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">,</span> <span class="n">sky_density</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse a string of Radiance gendaymtx data to a list of radiation-per-patch.</span>
+
+<span class="sd">        This function handles the removing of the header and the conversion of the</span>
+<span class="sd">        RGB irradiance=per-steradian values to broadband radiation. It also removes</span>
+<span class="sd">        the first patch, which is the ground and is not used by Ladybug.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data_str: The string that has been output by gendaymtx to stdout.</span>
+<span class="sd">            wea_duration: Number for the duration of the Wea in hours. This is used</span>
+<span class="sd">                to convert between the average value output by the command and the</span>
+<span class="sd">                cumulative value that is needed for all ladybug analyses.</span>
+<span class="sd">            sky_density: Integer (either 1 or 2) for the density.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># split lines and remove the header, ground patch and last line break</span>
+        <span class="n">data_lines</span> <span class="o">=</span> <span class="n">data_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LINE_BREAK</span><span class="p">)</span>
+        <span class="n">patch_lines</span> <span class="o">=</span> <span class="n">data_lines</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># loop through the rows and convert the radiation RGB values</span>
+        <span class="n">broadband_irr</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">patch_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row_patch_count</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PATCHES_PER_ROW</span><span class="p">[</span><span class="n">sky_density</span><span class="p">]):</span>
+            <span class="n">row_slice</span> <span class="o">=</span> <span class="n">patch_lines</span><span class="p">[</span><span class="n">patch_counter</span><span class="p">:</span><span class="n">patch_counter</span> <span class="o">+</span> <span class="n">row_patch_count</span><span class="p">]</span>
+            <span class="n">irr_vals</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_broadband_radiation</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">,</span> <span class="n">sky_density</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">row_slice</span><span class="p">)</span>
+            <span class="n">broadband_irr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">irr_vals</span><span class="p">)</span>
+            <span class="n">patch_counter</span> <span class="o">+=</span> <span class="n">row_patch_count</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">broadband_irr</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_broadband_radiation</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">patch_row_str</span><span class="p">,</span> <span class="n">row_number</span><span class="p">,</span> <span class="n">wea_duration</span><span class="p">,</span> <span class="n">sky_density</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse a row of gendaymtx RGB patch data in W/sr/m2 to radiation in kWh/m2.</span>
+
+<span class="sd">        This includes applying broadband weighting to the RGB bands, multiplication</span>
+<span class="sd">        by the steradians of each patch, and multiplying by the duration of time that</span>
+<span class="sd">        they sky matrix represents in hours.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            patch_row_str: Text string for a single row of RGB patch data.</span>
+<span class="sd">            row_number: Integer for the row number that the patch corresponds to.</span>
+<span class="sd">            sky_density: Integer (either 1 or 2) for the density.</span>
+<span class="sd">            wea_duration: Number for the duration of the Wea in hours. This is used</span>
+<span class="sd">                to convert between the average value output by the command and the</span>
+<span class="sd">                cumulative value that is needed for all ladybug analyses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">patch_row_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">SEPARATOR</span><span class="p">)</span>
+        <span class="n">w_val</span> <span class="o">=</span> <span class="mf">0.265074126</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.670114631</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">G</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.064811243</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">PATCH_ROW_COEFF</span><span class="p">[</span><span class="n">sky_density</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">w_val</span> <span class="o">*</span> <span class="n">coeff</span> <span class="o">*</span> <span class="n">wea_duration</span> <span class="o">/</span> <span class="mi">1000</span>
+
+<div class="viewcode-block" id="SkyMatrix.ToString">
+<a class="viewcode-back" href="../../ladybug_radiance.skymatrix.html#ladybug_radiance.skymatrix.SkyMatrix.ToString">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ToString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Overwrite .NET ToString.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">compute_sky</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_direct_values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diffuse_values</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sky Matrix object representation.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;SkyMatrix [</span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">wea</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">city</span></div>
+
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2025, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
