@@ -64,7 +64,7 @@ jobs:
         run: |
           nextRelease="`npx semantic-release@^17.0.0 --dryRun | grep -oP 'Published release \K.*? ' || true`"
           npx semantic-release@^17.0.0
-          echo "::set-output name=tag::$nextRelease"
+          echo "tag=$nextRelease" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
