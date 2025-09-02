@@ -30,7 +30,6 @@ COPY README.md ${LIBRARYDIR}
 COPY requirements.txt ${LIBRARYDIR}
 COPY display-requirements.txt ${LIBRARYDIR}
 COPY setup.py ${LIBRARYDIR}
-COPY setup.cfg ${LIBRARYDIR}
 COPY LICENSE ${LIBRARYDIR}
 
 # Switch user back to modify packages
