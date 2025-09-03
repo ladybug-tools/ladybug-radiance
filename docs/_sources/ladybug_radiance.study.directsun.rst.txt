@@ -1,0 +1,7 @@
+ladybug\_radiance.study.directsun module
+========================================
+
+.. automodule:: ladybug_radiance.study.directsun
+   :members:
+   :undoc-members:
+   :show-inheritance:
