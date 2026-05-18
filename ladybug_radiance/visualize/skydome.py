@@ -35,6 +35,8 @@ class SkyDome(object):
 
             * Orthographic
             * Stereographic
+            * Equidistant
+            * Equisolid
 
     Properties:
         * legend_parameters
@@ -53,9 +55,8 @@ class SkyDome(object):
     __slots__ = (
         '_north', '_total_values', '_direct_values', '_diffuse_values',
         '_metadata', '_is_benefit', '_legend_parameters', '_plot_irradiance',
-        '_center_point', '_radius', '_projection')
-
-    PROJECTIONS = ('Orthographic', 'Stereographic')
+        '_center_point', '_radius', '_projection'
+    )
 
     def __init__(self, sky_matrix, legend_parameters=None, plot_irradiance=False,
                  center_point=Point3D(0, 0, 0), radius=100, projection=None):
@@ -111,8 +112,9 @@ class SkyDome(object):
             'Dome radius must be greater than zero. Got {}.'.format(radius)
         self._radius = radius
         if projection is not None:
-            assert projection in self.PROJECTIONS, 'Projection "{}" is not recognized.' \
-                ' Choose from: {}.'.format(projection, self.PROJECTIONS)
+            compass_attr = 'point3d_to_{}'.format(projection.lower())
+            assert hasattr(Compass, compass_attr), 'Projection "{}" is not ' \
+                'recognized.'.format(projection)
         self._projection = projection
 
     @property
@@ -244,9 +246,14 @@ class SkyDome(object):
         if self.projection is not None:
             if self.projection.title() == 'Orthographic':
                 pts = (Compass.point3d_to_orthographic(pt) for pt in dome_mesh.vertices)
-            elif self.projection.title() == 'Stereographic':
-                pts = (Compass.point3d_to_stereographic(pt, self.radius, center)
-                       for pt in dome_mesh.vertices)
+            else:
+                func_name = 'point3d_to_{}'.format(self.projection.lower())
+                try:
+                    project_func = getattr(Compass, func_name)
+                except Exception:
+                    msg = 'Projection "{}" is not supported.'.format(self.projection)
+                    raise ValueError(msg)
+                pts = (project_func(pt, self.radius, center) for pt in dome_mesh.vertices)
             pts3d = tuple(Point3D(pt.x, pt.y, center.z) for pt in pts)
             dome_mesh = Mesh3D(pts3d, dome_mesh.faces)
 
