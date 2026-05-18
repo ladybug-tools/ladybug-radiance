@@ -1,0 +1,7 @@
+ladybug\_radiance.skymatrix module
+==================================
+
+.. automodule:: ladybug_radiance.skymatrix
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,19 @@
+ladybug\_radiance.study package
+===============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   ladybug_radiance.study.directsun
+   ladybug_radiance.study.radiation
+
+Module contents
+---------------
+
+.. automodule:: ladybug_radiance.study
+   :members:
+   :undoc-members:
+   :show-inheritance:
