@@ -1,0 +1,7 @@
+ladybug\_radiance.intersection module
+=====================================
+
+.. automodule:: ladybug_radiance.intersection
+   :members:
+   :undoc-members:
+   :show-inheritance:
