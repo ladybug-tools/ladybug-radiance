@@ -581,7 +581,8 @@ class SkyMatrix(object):
         """
         # split lines and remove the header, ground patch and last line break
         data_lines = data_str.split(self.LINE_BREAK)
-        patch_lines = data_lines[9:-1]
+        blank = next(i for i, ln in enumerate(data_lines) if not ln.strip())  # b'' or b'\r'
+        patch_lines = data_lines[blank + 2:-1]  # skip the blank line and the ground row
 
         # loop through the rows and convert the radiation RGB values
         broadband_irr = []
